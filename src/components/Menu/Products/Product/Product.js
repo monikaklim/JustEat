@@ -12,12 +12,14 @@ let str = '';
  
 
     return(
+
     <ul className="Product">
-    <li> <b>{props.name} </b> </li>
+    <li> <b>{props.name}  <i style = {{color:'red'}}>{props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{props.price} € </b> </li>
-    </ul>
-   
+
+</ul>
+ 
     );
 
 };

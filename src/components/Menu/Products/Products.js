@@ -32,7 +32,7 @@ state ={
 
     prod = response.data.Menu.products.map((p)=>
         {return (
-    <Product key = {p.Id} name = {p.Name} desc = {p.Desc}  price = {p.Price} /> 
+    <Product key = {p.Id} name = {p.Name} desc = {p.Desc}  price = {p.Price} syn = {p.Syn}  /> 
                 );} );
     
 

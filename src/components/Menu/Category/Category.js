@@ -10,8 +10,17 @@ products :[]
 
 
 componentDidMount(){
-    const prod = this.props.prods;
-    this.setState({products:prod});
+
+    let pr = this.props.prods;
+    this.setState({products:this.props.prods});
+
+
+
+
+
+
+
+
 
 }
 
