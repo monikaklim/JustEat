@@ -19,7 +19,7 @@ padding:10px;
 border-radius: 6px;
 }
 
-.Link:hover, .Link:active{
+.ActiveLink{
     color: #521751;
     background-color: white;
     border: 1px solid #521751;
