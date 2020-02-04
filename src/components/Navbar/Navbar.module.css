@@ -1,0 +1,27 @@
+.Navbar {
+list-style: none;
+display: inline-block ;
+top:0;
+width:100%;
+box-sizing: border-box;
+}
+
+.Link{
+float:right;
+margin-right:8px;
+margin-left:1px;
+background-color: #521751; 
+border: 1px solid white;
+cursor: pointer;
+text-decoration: none;
+color:white;
+padding:10px;
+border-radius: 6px;
+}
+
+.Link:hover, .Link:active{
+    color: #521751;
+    background-color: white;
+    border: 1px solid #521751;
+
+}
