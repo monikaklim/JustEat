@@ -33,20 +33,13 @@ let cat = [];
   <Product key = {index} name = {p.Name} desc = {p.Desc}  price = {p.Price} /> 
             );
 
-    
     }
     );
   
-  
-
-
 
   this.setState({products: prod, categories: cat, sauces: sau});
   console.log(this.state);
 }
-
-
-
 
 ); 
 }

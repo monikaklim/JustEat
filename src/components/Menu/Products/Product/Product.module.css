@@ -2,10 +2,18 @@
     width:80%;
     margin: auto;
     padding: 10px;
+    margin-top:7px;
+    margin-bottom:7px;
     box-sizing: border-box;
     background-color: white;
-    box-shadow: 0 2px 3px #521751;
+    box-shadow: 0 4px 7px #521751;
     text-align: center;
     cursor: pointer;
     list-style:none;
+}
+
+.Product:hover{
+    background-color: #ccc;
+    box-shadow: 0 2px 3px #521751;
+
 }
