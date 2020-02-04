@@ -1,0 +1,14 @@
+.Item{
+    margin:auto;
+    margin-top:3px;
+    margin-bottom:3px;
+    width: 80%;
+    padding:10px;
+    box-sizing: border-box;
+    list-style:none;
+    text-align:center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    background-color: white;
+    font-family: sans-serif;
+}

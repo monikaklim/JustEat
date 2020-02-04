@@ -1,0 +1,31 @@
+
+    .InputElement{
+        width: 50%;
+        padding:10px;
+        border: 1px solid #ccc;
+        outline:none;
+        padding:6px 10px;
+        box-sizing: border-box;
+        margin:auto;
+        margin-bottom:10px;
+    }
+
+    .Button {
+        margin: auto;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 20%;
+        border: 1px solid white;
+        background-color: #521751;
+        text-align: center;
+        cursor: pointer;
+        color:white;
+        font-weight:bold;
+        border-radius: 6px;
+    }
+    
+    .Button:hover {
+        background-color: #DECEF7;
+        border: 1px solid #521751;
+        color: #521751;
+    }
