@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './Homepage.module.css';
 import Item from '../Item/Item';
+import Navbar from '../Navbar/Navbar';
+
 
 class Homepage extends Component {
 
@@ -40,6 +42,7 @@ this.state.items.map((item,index) => {
 return(
  
 <div>
+ <Navbar/>
 
     <h3>Add element</h3>
     <input className ="InputElement" type="text" value= {this.state.text}  onChange= {(event) => this.inputChangedHadler(event)}/>

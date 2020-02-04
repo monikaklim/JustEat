@@ -24,8 +24,9 @@
         border-radius: 6px;
     }
     
-    .Button:hover {
+    .Button:active{
         background-color: #DECEF7;
         border: 1px solid #521751;
         color: #521751;
     }
+    
