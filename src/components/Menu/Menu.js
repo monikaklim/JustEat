@@ -10,7 +10,8 @@ render(){
     return(
 <div>     
 <Navbar/>
-<h3>Menu</h3>
+
+<h3>Menù</h3>
 <Products/>
 </div>   
 

@@ -7,7 +7,7 @@ const product= (props) =>(
     <ul className="Product">
     <li>{props.name}  </li>
     <li> {props.desc}  </li>
-    <li> {props.price}  </li>
+    <li> {props.price} €  </li>
     </ul>
 
 
