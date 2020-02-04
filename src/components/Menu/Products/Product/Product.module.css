@@ -1,0 +1,11 @@
+.Product {
+    width:80%;
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 2px 3px #521751;
+    text-align: center;
+    cursor: pointer;
+    list-style:none;
+}

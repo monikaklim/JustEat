@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
-
+import Products from './Products/Products';
 
 class Menu extends Component{
 
@@ -11,6 +11,7 @@ render(){
 <div>     
 <Navbar/>
 <h3>Menu</h3>
+<Products/>
 </div>   
 
     );
