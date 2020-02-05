@@ -1,5 +1,6 @@
 export {
     fetchProducts,
     fetchCategories,
-    fetchSauces
+    fetchSauces,
+    fetchOptions
 }from './actionsMenu';

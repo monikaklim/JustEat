@@ -1,19 +1,28 @@
 import React from 'react';
-
+import Backdrop from '../Backdrop/Backdrop';
 import './Modal.module.css';
 
 const modal = (props) => {
 
 
-const cssClasses = ["Modal", props.show === "entering" ? "ModalOpen" 
-: props.show === "exiting" ?    "ModalClosed" : null];
+const cssClasses = ["Modal", props.show  ? "ModalOpen"  :  "ModalClosed" ];
 
 
 return(
+    <div>
+    <Backdrop show ={props.show}  clicked = {props.modalClosed}/>
+
     <div className={cssClasses.join(' ')}>
         <h1>A Modal</h1>
-        <button className="Button" onClick={props.closed}>Dismiss</button>
-    </div>);
+       
+
+
+        {props.children}
+
+        <button className="Button" onClick={props.modalClosed}>Dismiss</button>
+    </div>
+    </div>
+    );
 };
 
 export default modal;

@@ -6,6 +6,7 @@ const initialState = {
 products:[],
 categories:[],
 sauces:[],
+options:[],
 loading:false
 
 }
@@ -59,6 +60,24 @@ const fetchSaucesFail = ( state ) => {
 };
 
 
+//options
+const fetchOptionsStart = ( state ) => {
+    return updateObject( state, { loading: true } );
+};
+
+const fetchOptionsSuccess = ( state, action ) => {
+    return updateObject( state, {
+        options: action.options,
+        loading: false
+    } );
+};
+
+const fetchOptionsFail = ( state ) => {
+    return updateObject( state, { loading: false } );
+};
+
+
+
 
 const reducer = (state = initialState, action) =>{
 
@@ -75,6 +94,10 @@ switch(action.type){
     case actionTypes.FETCH_SAUCES_SUCCESS: return fetchSaucesSuccess( state, action );
     case actionTypes.FETCH_SAUCES_FAIL: return fetchSaucesFail( state, action );
 
+    
+    case actionTypes.FETCH_OPTIONS_START: return fetchOptionsStart( state, action );
+    case actionTypes.FETCH_OPTIONS_SUCCESS: return fetchOptionsSuccess( state, action );
+    case actionTypes.FETCH_OPTIONS_FAIL: return fetchOptionsFail( state, action );
 
     default: return state;
 }

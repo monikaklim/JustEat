@@ -20,6 +20,9 @@ let products = <Spinner/>;
 
 if(!this.props.loading){
     products =  this.props.products.map(p => {return (
+
+p.Name.includes("burger") || p.Name.includes("Burger") ? 
+    <Product key = {p.Id} name = {p.Name} desc = {p.Desc}  price = {p.Price} syn = {p.Syn} isBurger/>  : 
     <Product key = {p.Id} name = {p.Name} desc = {p.Desc}  price = {p.Price} syn = {p.Syn} /> 
                 );} );
 }
