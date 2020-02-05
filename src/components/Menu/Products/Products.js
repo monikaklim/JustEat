@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Product from './Product/Product';
 import axios from 'axios';
+import Spinner from '../../UI/Spinner/Spinner';
 import Category from '../Category/Category';
 import {connect} from 'react-redux';
 import * as actions from '../../../store/actions/index';
@@ -16,6 +17,7 @@ state ={
 
     componentDidMount(){
 
+        this.props.onFetchCategories();
         this.props.onFetchProducts();
     /*
     axios.get('https://www.justeat.it/menu/getproductsformenu?menuId=37633').then(response => {
@@ -52,16 +54,25 @@ state ={
 
 render(){
 
-let products=  this.props.products.map(p => {return (
-<Product key = {p.Id} name = {p.Name} desc = {p.Desc}  price = {p.Price} syn = {p.Syn} /> 
-            );} );
+let categories = [];
+let products = <Spinner/> 
+
+if(!this.props.loading){
+    products =  this.props.products.map(p => {return (
+    <Product key = {p.Id} name = {p.Name} desc = {p.Desc}  price = {p.Price} syn = {p.Syn} /> 
+                );} );
 
 
+    categories = this.props.categories.map((c) =>
+                {return  (
+                <Category key ={c.Id} name = {c.Name} prods= {c.Items.map(i => i.Products.map(p => p.Id))  } /> );});
+
+}
 
     return(
 <div> 
 
-{this.state.categories}  
+{categories}  
 {products}
 
 </div>   
@@ -76,13 +87,15 @@ let products=  this.props.products.map(p => {return (
 const mapStateToProps = state =>{
     return{
         products: state.products,
+        categories:state.categories,
         loading: state.loading
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return{
-       onFetchProducts: () => dispatch(actions.fetchProducts())
+       onFetchProducts: () => dispatch(actions.fetchProducts()),
+       onFetchCategories: () => dispatch(actions.fetchCategories())
     };
 };
 
