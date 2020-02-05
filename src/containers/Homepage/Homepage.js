@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Homepage.module.css';
-import Item from '../Item/Item';
-import Navbar from '../Navbar/Navbar';
+import Item from '../../components/UI/Item/Item';
+import Navbar from '../../components/Navbar/Navbar';
 
 
 class Homepage extends Component {
