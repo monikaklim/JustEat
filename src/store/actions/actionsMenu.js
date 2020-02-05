@@ -70,13 +70,52 @@ return dispatch => {
     dispatch(fetchCategoriesStart());
     axios.get('https://www.justeat.it/menu/getproductsformenu?menuId=37633').then(response => {           
     const fetchedCategories = [];
+    
     for(let key in response.data.Menu.Categories){
         fetchedCategories.push({...response.data.Menu.Categories[key], id:key });
     }
     dispatch(fetchCategoriesSuccess(fetchedCategories));
-
      })
 .catch(err => dispatch(fetchCategoriesFail(err)));    
+
+};
+};
+
+//sauces
+
+export const fetchSaucesSuccess = (sauces) =>{
+    return{
+        type: actionTypes.FETCH_SAUCES_SUCCESS,
+       sauces:sauces
+    };
+};
+
+export const fetchSaucesFail = (error) =>{
+    return{
+        type: actionTypes.FETCH_SAUCES_FAIL,
+        error:error
+    };
+};
+
+export const fetchSaucesStart = () =>{
+    return{
+        type: actionTypes.FETCH_SAUCES_START,
+
+    };
+};
+
+export const fetchSauces = () =>{
+return dispatch => {
+    dispatch(fetchSaucesStart());
+    axios.get('https://www.justeat.it/menu/getproductsformenu?menuId=37633').then(response => {           
+    const fetchedSauces = [];
+    for(let key in response.data.Menu.accessories){
+        fetchedSauces.push({...response.data.Menu.accessories[key], id:key });
+    }
+    dispatch(fetchSaucesSuccess(fetchedSauces));
+
+     })
+.catch(err => dispatch(fetchSaucesFail(err)));    
 
 };
 };

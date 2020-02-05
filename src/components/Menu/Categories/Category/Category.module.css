@@ -1,0 +1,29 @@
+.Category{
+  text-align:center;
+    margin-top:3px;
+    margin-bottom:3px;
+    height:60px;
+    width: 100%;
+    padding:4px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: sans-serif;
+    vertical-align: middle;
+}
+
+.showButton{
+    position: relative;
+    float:right;
+    margin-right:5px;
+    margin-top:0;
+    height:15px;
+    width: auto;
+    background-color: white;
+    border:none;
+    cursor: pointer;
+    padding:0;
+}
+
+.showButton:hover{
+  color:#521751;
+}
