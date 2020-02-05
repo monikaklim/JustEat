@@ -29,10 +29,12 @@ return dispatch => {
     dispatch(fetchProductsStart());
     axios.get('https://www.justeat.it/menu/getproductsformenu?menuId=37633').then(response => {      
     const fetchedProducts = [];
+    let typeP = '';
     for(let key in response.data.Menu.products){
-        fetchedProducts.push({...response.data.Menu.products[key], id:key });
+     
+        fetchedProducts.push({...response.data.Menu.products[key], id:key, type:typeP});
     }
-   
+
     dispatch(fetchProductsSuccess(fetchedProducts));
 
      })
@@ -123,10 +125,11 @@ return dispatch => {
 
 //products options
 
-export const fetchOptionsSuccess = (options) =>{
+export const fetchOptionsSuccess = (optionsBurg, optionsDog) =>{
     return{
         type: actionTypes.FETCH_OPTIONS_SUCCESS,
-       options:options
+       optionsBurg:optionsBurg,
+       optionsDog: optionsDog
     };
 };
 
@@ -161,10 +164,9 @@ return dispatch => {
         fetchedHotDogOptions.push({...response.data.Menu.products[key], id:key });}
     }
 
-  const fetchedOptions = [fetchedBurgerOptions,fetchedHotDogOptions];
+  
 
-
-    dispatch(fetchOptionsSuccess(fetchedOptions));
+    dispatch(fetchOptionsSuccess(fetchedBurgerOptions,fetchedHotDogOptions));
 
      })
 .catch(err => dispatch(fetchOptionsFail(err)));    

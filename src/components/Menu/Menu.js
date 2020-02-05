@@ -31,13 +31,13 @@ render(){
 <Navbar/>
 
 <h1>Menù</h1>
-<Options/>
+<Options type = 'burger'/>
 <Categories/>
 <Sauces/>
 <Products/>
 
 
-<Modal show = {this.state.purchasing} clicked = {this.purchasingCancelledHandler}> <Sauces/> </Modal>
+<Modal show = {this.state.purchasing} clicked = {this.purchasingCancelledHandler}>  </Modal>
 </div>   
 
     );

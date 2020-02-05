@@ -6,7 +6,8 @@ const initialState = {
 products:[],
 categories:[],
 sauces:[],
-options:[],
+optionsBurg:[],
+optionsDog:[],
 loading:false
 
 }
@@ -67,7 +68,8 @@ const fetchOptionsStart = ( state ) => {
 
 const fetchOptionsSuccess = ( state, action ) => {
     return updateObject( state, {
-        options: action.options,
+        optionsBurg: action.optionsBurg,
+        optionsDog:action.optionsDog,
         loading: false
     } );
 };

@@ -18,29 +18,31 @@ render(){
 
 let options = <Spinner/>;
 
-
 if(!this.props.loading){
-console.log(this.props.options);
-options = this.props.options.map((o) =>
-                {return  (
-                <Option key = {o.Id} name = {o.Name}   price = {o.Price} syn = {o.Syn} /> )});
 
-            }        
+    this.props.type === 'burger' ? (
+ options = this.props.optionsBurg.map((o) =>
+            {return  (
+                <Option key = {o.Id} name = {o.Name}   price = {o.Price} syn = {o.Syn} /> )}) ) : null
 
-    return(
-        <div> 
-            {options}  
-        </div>   
-    );
+  
     }
 
-    };
 
+    
+    return(
+        <div> 
+           <p> {options} </p> 
+        </div>   
+    );
+    }   
+}
 
     const mapStateToProps = state =>{
         return{
-           options:state.options,
-           loading: state.loading
+           loading: state.loading,
+           optionsBurg:state.optionsBurg,
+           optionsDog:state.optionsDog
         };
     };
 
