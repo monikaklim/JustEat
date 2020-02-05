@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Product from './Product/Product';
 import axios from 'axios';
 import Category from '../Category/Category';
-
+import {connect} from 'react-redux';
+import * as actions from '../../../store/actions/index';
 
 class Products extends Component{
 
@@ -14,7 +15,9 @@ state ={
 }
 
     componentDidMount(){
-    
+
+        this.props.onFetchProducts();
+    /*
     axios.get('https://www.justeat.it/menu/getproductsformenu?menuId=37633').then(response => {
     console.log(response.data);
         
@@ -41,7 +44,7 @@ state ={
     
     }
     );
-  
+  */
 
     }
 
@@ -49,11 +52,17 @@ state ={
 
 render(){
 
+let products=  this.props.products.map(p => {return (
+<Product key = {p.Id} name = {p.Name} desc = {p.Desc}  price = {p.Price} syn = {p.Syn} /> 
+            );} );
+
+
+
     return(
 <div> 
 
 {this.state.categories}  
-{this.state.products}
+{products}
 
 </div>   
 
@@ -62,4 +71,21 @@ render(){
 
 
 };
-export default Products;
+
+
+const mapStateToProps = state =>{
+    return{
+        products: state.products,
+        loading: state.loading
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return{
+       onFetchProducts: () => dispatch(actions.fetchProducts())
+    };
+};
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Products);

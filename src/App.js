@@ -2,18 +2,19 @@ import React from "react";
 import Homepage from './containers/Homepage/Homepage';
 import {Route, BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import reducer from './store/reducer';
+import {createStore, applyMiddleware} from 'redux';
+import reducer from './store/reducers/reducerMenu';
 import asyncComponent from './hoc/asyncComponent';
 import './index.module.css';
+import thunk from 'redux-thunk';
 
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ;
 
 const asyncMenu = asyncComponent(() => {
   return import('./components/Menu/Menu');
 });
 
-const store = createStore(reducer);
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)) );
 
 
 const App = () =>(
