@@ -1,3 +1,5 @@
+
+/*
 import React, { Component } from 'react';
 import Product from './Product/Product';
 //import axios from 'axios';
@@ -73,3 +75,5 @@ const mapDispatchToProps = dispatch => {
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(Products);
+
+*/

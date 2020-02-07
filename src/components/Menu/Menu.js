@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
-import Products from './Products/Products';
 import Categories from './Categories/Categories';
 import Sauces from './Sauces/Sauces';
 import Modal from '../UI/Modal/Modal';
@@ -31,10 +30,11 @@ render(){
 <Navbar/>
 
 <h1>Menù</h1>
-<Options type = 'burger'/>
+<Options />
 
-<Products/>
+
 <Categories/>
+
 
 </div>   
 

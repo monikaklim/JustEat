@@ -16,7 +16,7 @@ class Options extends Component{
 
 render(){
 
-let options = <Spinner/>;
+let options =" ";
 
 if(!this.props.loading){
 

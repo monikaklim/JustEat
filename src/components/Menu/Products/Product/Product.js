@@ -13,7 +13,7 @@ let str = '';
 
     return(
 
-    <ul className="Product">
+<ul className="Product">
 
     <li> <b>{props.name}  <i style = {{color:'red'}}>{props.syn} </i></b> </li>
     <li> {str}  </li>

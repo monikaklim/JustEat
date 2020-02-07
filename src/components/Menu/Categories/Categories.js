@@ -14,12 +14,9 @@ class Categories extends Component{
 
 
 render(){
-const ref = React.createRef();
 
 let show = [];
-let prods = <Spinner/>;
-let cats =  [];
-let categ = [];
+let categ = [];;
 let prodsOfCat = [];
 let idProdsOfCat = [];
 let idProdsMenu = [];
@@ -28,54 +25,26 @@ let productsArr = [];
 let pr = [];
 
 if(!this.props.loading){
-    
-    prods =  products.map(p => {return (
-    <Product key = {p.Id}  name = {p.Name} desc = {p.Desc}  price = {p.Price} syn = {p.Syn}  /> )});
-  
-    cats =  categories.map(c => {return (
-        <Category key ={c.Id}  name = {c.Name}  /> 
-         );} ); 
- 
 
  prodsOfCat = categories.map(c => c.Items.map(i => i.Products.map(
      p => p.Id
      )));
 
-
 idProdsOfCat = prodsOfCat.map(p => p.toString().split(',').map((p) => p  ) );
 idProdsMenu = products.map(p => p.Id).toString().split(',');
-console.log(idProdsOfCat);
-
-
-
 
 for(let key in idProdsMenu){
  for(let key2 in idProdsOfCat){
 
    if( idProdsOfCat[key2].find(p => p === idProdsMenu[key])){
-
    productsArr.push({prods : <Product key = {key}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  categ = {key2}/> , cat: key2  } 
     );
 
-   
-
-  show.push(  
-    <Product key = {key}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  categ = {key2} /> 
-  );
-
 }
     
+ }   
 
-        
-    
-    
-    }
-      
-
-
-     }
-
-     console.log(productsArr); 
+ }
 
 
 for(let key in categories){
@@ -83,11 +52,6 @@ console.log(productsArr.filter(p => p.cat === key) );
     categ.push(<Category key ={key}  name = {categories[key].Name}  products = {productsArr.filter(p => p.cat === key)   }  /> );
     
 }
-
-
-
-
-
 
 
 }
@@ -98,7 +62,7 @@ console.log(productsArr.filter(p => p.cat === key) );
 
     return(
         <div> 
-            {categ}
+         { this.props.loading ? <Spinner/> :  categ }
         </div>   
     );
 
@@ -116,7 +80,7 @@ console.log(productsArr.filter(p => p.cat === key) );
 
     const mapDispatchToProps = dispatch => {
         return{
-        onFetchCategories: () => dispatch(actions.fetchCategories())
+        onFetchCategories: () => dispatch(actions.fetchProducts())
         };
     };
 
