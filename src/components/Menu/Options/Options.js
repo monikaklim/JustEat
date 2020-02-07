@@ -9,24 +9,12 @@ import Spinner from '../../UI/Spinner/Spinner';
 class Options extends Component{
 
     componentDidMount(){
-
         this.props.onFetchOptions();
     }
-
 
 render(){
 
 let options =" ";
-
-if(!this.props.loading){
-
-    this.props.type === 'burger' ? (
- options = this.props.optionsBurg.map((o) =>
-            {return  (
-                <Option key = {o.Id} name = {o.Name}   price = {o.Price} syn = {o.Syn} /> )}) ) : null
-
-  
-    }
 
 
     
@@ -41,8 +29,7 @@ if(!this.props.loading){
     const mapStateToProps = state =>{
         return{
            loading: state.loading,
-           optionsBurg:state.optionsBurg,
-           optionsDog:state.optionsDog
+           options:state.options
         };
     };
 

@@ -1,5 +1,5 @@
 .Category{
-  text-align:center;
+    text-align:center;
     margin-top:3px;
     margin-bottom:3px;
     height:60px;
@@ -9,6 +9,8 @@
     background-color: white;
     font-family: sans-serif;
     vertical-align: middle;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .showButton{
@@ -16,12 +18,13 @@
     float:right;
     margin-right:5px;
     margin-top:0;
-    height:15px;
+    height:25px;
     width: auto;
     background-color: white;
     border:none;
     cursor: pointer;
     padding:0;
+    outline:none;
 }
 
 .showButton:hover{
@@ -29,9 +32,9 @@
 }
 
 .products{
-
+margin-bottom:10px;
 margin-top:10px;
 height:auto;
-
+transition: all 0.4s ease-in;
 
 }

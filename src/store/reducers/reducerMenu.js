@@ -5,8 +5,7 @@ const initialState = {
 products:[],
 categories:[],
 sauces:[],
-optionsBurg:[],
-optionsDog:[],
+options:[],
 loading:false
 
 }
@@ -21,6 +20,7 @@ const fetchProductsSuccess = ( state, action ) => {
         products: action.products,
         categories: action.categories,
         sauces:action.sauces,
+        options: state.options,
         loading: false
     } );
 };
@@ -69,8 +69,7 @@ const fetchOptionsStart = ( state ) => {
 
 const fetchOptionsSuccess = ( state, action ) => {
     return updateObject( state, {
-        optionsBurg: action.optionsBurg,
-        optionsDog:action.optionsDog,
+        options:action.options,
         loading: false
     } );
 };

@@ -29,7 +29,7 @@ render(){
 <div>     
 <Navbar/>
 
-<h1>Menù</h1>
+<h1>Il Panino di Zio Frank </h1>
 <Options />
 
 

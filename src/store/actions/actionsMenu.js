@@ -3,12 +3,13 @@ import axios from 'axios'
 
 
 //products
-export const fetchProductsSuccess = (products,categories,sauces) =>{
+export const fetchProductsSuccess = (products,categories,sauces,options) =>{
     return{
         type: actionTypes.FETCH_PRODUCTS_SUCCESS,
         products:products,
         categories:categories,
-        sauces:sauces
+        sauces:sauces,
+        options:options
     };
 };
 
@@ -33,8 +34,7 @@ return dispatch => {
     const fetchedProducts = [];
     const fetchedCategories = [];
     const fetchedSauces = [];
-
-
+    const fetchedOptions = [];
 
     for(let key in response.data.Menu.products){
      
@@ -43,14 +43,20 @@ return dispatch => {
 
     for(let key in response.data.Menu.Categories){
         fetchedCategories.push({...response.data.Menu.Categories[key], id:key });
+    
     }
 
  for(let key in response.data.Menu.accessories){
         fetchedSauces.push({...response.data.Menu.accessories[key], id:key });
     }
+
+    
+     
+       
+    
   
     dispatch(fetchProductsSuccess(fetchedProducts,fetchedCategories,fetchedSauces));
-
+    
      })
 .catch(err => dispatch(fetchProductsFail(err)));    
 
@@ -139,11 +145,10 @@ return dispatch => {
 
 //products options
 
-export const fetchOptionsSuccess = (optionsBurg, optionsDog) =>{
+export const fetchOptionsSuccess = (options) =>{
     return{
         type: actionTypes.FETCH_OPTIONS_SUCCESS,
-       optionsBurg:optionsBurg,
-       optionsDog: optionsDog
+     options:options
     };
 };
 
@@ -178,9 +183,9 @@ return dispatch => {
         fetchedHotDogOptions.push({...response.data.Menu.products[key], id:key });}
     }
 
-  
+  const options = {...fetchedBurgerOptions,...fetchedHotDogOptions};
 
-    dispatch(fetchOptionsSuccess(fetchedBurgerOptions,fetchedHotDogOptions));
+    dispatch(fetchOptionsSuccess(options));
 
      })
 .catch(err => dispatch(fetchOptionsFail(err)));    
