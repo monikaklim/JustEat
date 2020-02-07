@@ -2,7 +2,6 @@ import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../../utility/utility';
 
 const initialState = {
-
 products:[],
 categories:[],
 sauces:[],
@@ -20,6 +19,8 @@ const fetchProductsStart = ( state ) => {
 const fetchProductsSuccess = ( state, action ) => {
     return updateObject( state, {
         products: action.products,
+        categories: action.categories,
+        sauces:action.sauces,
         loading: false
     } );
 };

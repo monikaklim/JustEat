@@ -3,10 +3,12 @@ import axios from 'axios'
 
 
 //products
-export const fetchProductsSuccess = (products) =>{
+export const fetchProductsSuccess = (products,categories,sauces) =>{
     return{
         type: actionTypes.FETCH_PRODUCTS_SUCCESS,
-        products:products
+        products:products,
+        categories:categories,
+        sauces:sauces
     };
 };
 
@@ -29,13 +31,25 @@ return dispatch => {
     dispatch(fetchProductsStart());
     axios.get('https://www.justeat.it/menu/getproductsformenu?menuId=37633').then(response => {      
     const fetchedProducts = [];
-    let typeP = '';
+    const fetchedCategories = [];
+    const fetchedSauces = [];
+
+
+
     for(let key in response.data.Menu.products){
      
-        fetchedProducts.push({...response.data.Menu.products[key], id:key, type:typeP});
+        fetchedProducts.push({...response.data.Menu.products[key], id:key});
     }
 
-    dispatch(fetchProductsSuccess(fetchedProducts));
+    for(let key in response.data.Menu.Categories){
+        fetchedCategories.push({...response.data.Menu.Categories[key], id:key });
+    }
+
+ for(let key in response.data.Menu.accessories){
+        fetchedSauces.push({...response.data.Menu.accessories[key], id:key });
+    }
+  
+    dispatch(fetchProductsSuccess(fetchedProducts,fetchedCategories,fetchedSauces));
 
      })
 .catch(err => dispatch(fetchProductsFail(err)));    

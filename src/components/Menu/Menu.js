@@ -32,12 +32,10 @@ render(){
 
 <h1>Menù</h1>
 <Options type = 'burger'/>
-<Categories/>
-<Sauces/>
+
 <Products/>
+<Categories/>
 
-
-<Modal show = {this.state.purchasing} clicked = {this.purchasingCancelledHandler}>  </Modal>
 </div>   
 
     );
@@ -45,3 +43,5 @@ render(){
 };
 
 export default Menu;
+
+//<Modal show = {this.state.purchasing} clicked = {this.purchasingCancelledHandler}>  </Modal>

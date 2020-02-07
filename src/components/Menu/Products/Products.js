@@ -16,36 +16,51 @@ class Products extends Component{
 
 
 render(){
-let products = <Spinner/>;
-
-
+let prods = <Spinner/>;
+let cats =  [];
+let prodsOfCat = [];
+let idProdsOfCat = [];
+let idProdsMenu = [];
+const {products,sauces,categories} = this.props;
 
 if(!this.props.loading){
-    products =  this.props.products.map(p => {return (
+    
+    prods =  products.map(p => {return (
+    <Product key = {p.Id} id = {p.Id} name = {p.Name} desc = {p.Desc}  price = {p.Price} syn = {p.Syn}  /> )});
+  
+    cats =  categories.map(c => {return (
+        <Category key ={c.Id} name = {c.Name}  /> 
+         );} ); 
+ 
 
-    <Product key = {p.Id} name = {p.Name} desc = {p.Desc}  price = {p.Price} syn = {p.Syn}  />  
-     );} );
+ prodsOfCat = categories.map(c => c.Items.map(i => i.Products.map(
+     p => p.Id
+     )));
 
-                console.log(products);
+idProdsOfCat = prodsOfCat.toString().split(',');
+idProdsMenu = products.map(p => p.Id).toString().split(',');
+//console.log(idProdsMenu);
+
+
 }
 
     return(
 <div> 
 
-{products}
+{}
 </div>   
 );
-}
+
 
 };
 
+}
 
 const mapStateToProps = state =>{
     return{
         products: state.products,
         loading: state.loading,
-        optionsBurg: state.optionsBurg
-
+       categories:state.categories
     };
 };
 
