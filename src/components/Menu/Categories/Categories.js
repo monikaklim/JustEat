@@ -46,17 +46,16 @@ prod = categories.map(c => c.Items.map(i => i.Products));
 options = categories.map ((cat)=>{ return {name: 
     cat.Name, 
     items: cat.Items.map((item)=>{return {product: 
-                                          item.Products.map((product, index)=> { 
+                                          item.Products.map((product)=> { 
                                             return{id: product.Id, parts: (product.Parts)};
                                             })}
                                          })
    };
 });
-
+let o;
 let idPr = "";
 let idOp = "";
-//console.log(options);
-
+let prodWithOpt = null;
 for(let key in options){
 
    // console.log("numero categoria "+ key );
@@ -72,67 +71,37 @@ for(let key in options){
              for(let key4 in options[key].items[key2].product[key3]){
                //  console.log(options[key].items[key2].product[key3].id);
                  idPr = options[key].items[key2].product[key3].id;
-
-                for(let key5 in options[key].items[key2].product[key3].parts ){
-                   // console.log(options[key].items[key2].product[key3].parts[key5]);
-
+               
+                for(let key5 in options[key].items[key2].product[key3].parts){
+                   //console.log(options[key].items[key2].product[key3].parts[key5]);
+        
+                   prodWithOpt = products.find(p => p.Id === idPr);
                     for(let key6 in options[key].items[key2].product[key3].parts[key5]){
-                       // console.log(options[key].items[key2].product[key3].parts[key5][key6].Id);
-                        idOp = options[key].items[key2].product[key3].parts[key5][key6].Id;
-                        
+                     // console.log(options[key].items[key2].product[key3].parts[key5][key6].Id);
+                      
+                        idOp = options[key].items[key2].product[key3].parts[key5][key6].Id;   
+                        o = products.find(p => p.Id === idOp);
+                        opProd.push({...prodWithOpt, opt: o});
                     }
+                   //cercare opzione by id
 
                 }
                
              }
-             opProd.push({idP: idPr, idO: idOp});
-             } 
+             
+             
+          } 
+            
         }
 
     }
   
 }
 
-
-
-     
-
-/*
-for(let key in options){
-
-
-    console.log("numero categoria "+ key );
-    for(let key2 in options[key]){
-//console.log("num prod "+ key2);
-        //console.log(options[key][key2]);
-        for(let key3 in options[key[key2]]){
-     
-           
-
-            if(options[key][key2][key3] != null){
-             for(let key4 in options[key][key2][key3])
-
-                for(let key5 in options[key][key2][key3][key4]){
-                   console.log(options[key][key2][key3][key4][key5].Id); 
-                    opProd.push({id: options[key][key2][key3][key4][key5].Id, cat: key});
-
-                }
-             } 
-        }
-
-    }
-}
-
-
-*/
+console.log(opProd);
 
 
 
-
-
-
-
-//console.log(opProd.filter(p => p.idP === products[key].Id));
 
 for(let key in idProdsMenu){
 
@@ -143,8 +112,6 @@ for(let key in idProdsMenu){
     productsArr.push({prods : <Product key = {products[key].Id}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}   /> , cat: key2  } 
         );
 
-       
-   
     }
         
 }
@@ -163,7 +130,6 @@ for(let key in categories){
 
 
 console.log(productsArr);
-
 
     return(
         <div> 
