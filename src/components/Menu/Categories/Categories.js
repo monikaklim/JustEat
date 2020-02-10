@@ -4,7 +4,7 @@ import Category from './Category/Category';
 import {connect} from 'react-redux';
 import * as actions from '../../../store/actions/index';
 import Spinner from '../../UI/Spinner/Spinner';
-import Option from '../Options/Option/Option';
+import Option from '../Option/Option';
 
 
 class Categories extends Component{
@@ -23,10 +23,12 @@ let idProdsMenu = [];
 let opt = [];
 const {products,categories} = this.props;
 let productsArr = [];
-
+let sauces = this.props.sauces;
 let opProd = [];
 
 if(!this.props.loading){
+
+sauces = sauces.map(s => <Option key = {s.Id} name = {s.Name} />);
 
 
     prodsOfCat = categories.map(c => c.Items.map(i => i.Products.map(p => p.Id )));
@@ -65,10 +67,10 @@ for(let key in options){
                     for(let key6 in options[key].items[key2].product[key3].parts[key5]){
                       
                         idOp = options[key].items[key2].product[key3].parts[key5][key6].Id;   
-
+                        
                         o = products.find(p => p.Id === idOp);
                       
-                        opProd.push({...prodWithOpt, opt: o});
+                        opProd.push({...prodWithOpt, opt: o, step:key5});
                     }
                 }
              }  
@@ -87,11 +89,10 @@ for(let key in idProdsMenu){
 
     if( idProdsOfCat[key2].find(p => p === idProdsMenu[key])){
 
-
-        opt = opProd.filter((p) => p.Id === products[key].Id);
-       opt = opt.filter((op,index,self) => index === self.findIndex((o) => (op.opt.Name === o.opt.Name && op.opt.Id === o.opt.Id  ) ));
-       
-    productsArr.push({prods : <Product key = {products[key].Id}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  opts = {opt.map(o => <Option key = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} />)} /> , cat: key2  } 
+     opt = opProd.filter((p) => p.Id === products[key].Id);
+     opt = opt.filter((op,index,self) => index === self.findIndex((o) => (op.opt.Name === o.opt.Name && op.opt.Id === o.opt.Id  ) ));
+     
+    productsArr.push({prods : <Product key = {products[key].Id}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  sauces = { products[key].Syn === "Menù"  ? sauces : null} opts = {opt.map(o => <Option key = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} step = {o.step}/>)} /> , cat: key2  } 
         );
 
 
@@ -125,7 +126,7 @@ for(let key in categories){
             categories:state.categories,
             products:state.products,
             loading: state.loading,
-            options:state.options
+           sauces: state.sauces
         };
     };
 

@@ -5,19 +5,27 @@
     border: 1px solid #eee;
     box-shadow: 0 2px 2px #ccc;
     background-color: white;
-    padding: 8px;
+    padding: 4px;
     text-align: center;
     box-sizing: border-box;
     top: 10%;
     left: 25%;
-    width: 50%;
+    width: 80%;
+    height: 60%;
     transition:all 0.3s ease-out;
+    overflow-y: auto;
+ 
+}
+.Button {
+   bottom:10px;
 }
 
-@media (min-width: 500px) {
+
+@media (min-width: 600px) {
     .Modal {
-        width: 400px;
-        left: calc(50% - 200px);
+        width: 500px;
+        left: calc(50% - 250px);
+    
     }
     .Button{
         width:40%

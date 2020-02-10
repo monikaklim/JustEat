@@ -7,15 +7,9 @@ class Option extends Component{
   
     return(
     <div className="Option">
-    <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b>
-       
-    <div> 
-
-
-</div>
-
-
-</div>
+    <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i>  </b>
+   
+    </div>
    
     );
     }
