@@ -7,21 +7,21 @@ box-sizing: border-box;
 }
 
 .Link{
+outline:none;
 float:right;
 margin-right:8px;
 margin-left:1px;
-background-color: #521751; 
-border: 1px solid white;
+color: #521751;
+background-color: white;
+border: 1px solid #521751;
 cursor: pointer;
 text-decoration: none;
-color:white;
 padding:10px;
 border-radius: 6px;
 }
 
 .ActiveLink{
-    color: #521751;
-    background-color: white;
-    border: 1px solid #521751;
-
+color:white;
+background-color: #521751; 
+border: 1px solid white;
 }

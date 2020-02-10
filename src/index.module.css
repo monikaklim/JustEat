@@ -5,5 +5,10 @@ body {
   background-color: #DECEF7;
   text-align: center;
   width:100%;
+  cursor:default;
 }
+::selection { text-shadow: 1px 1px #ccc }
+
+
+
 

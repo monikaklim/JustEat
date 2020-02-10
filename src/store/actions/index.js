@@ -1,0 +1,3 @@
+export {
+    fetchData
+}from './actionsMenu';

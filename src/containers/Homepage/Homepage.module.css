@@ -15,18 +15,21 @@
         padding: 10px;
         box-sizing: border-box;
         width: 20%;
+        color:white;
         border: 1px solid white;
         background-color: #521751;
+
         text-align: center;
         cursor: pointer;
-        color:white;
         font-weight:bold;
         border-radius: 6px;
     }
     
     .Button:active{
+      
         background-color: #DECEF7;
-        border: 1px solid #521751;
+        border: 2px solid #521751;
         color: #521751;
+    
     }
     

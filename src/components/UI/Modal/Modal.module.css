@@ -1,0 +1,34 @@
+
+.Modal {
+    position: fixed;
+    z-index: 200;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 2px #ccc;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    top: 20%;
+    left: 25%;
+    width: 80%;
+    height:auto;
+    max-height:70%;
+    transition:all 0.3s ease-out;
+    overflow-y: auto;
+ 
+}
+.Button {
+   bottom:10px;
+}
+
+
+@media (min-width: 500px) {
+    .Modal {
+        width: 400px;
+        left: calc(50% - 200px);
+    
+    }
+    .Button{
+        width:40%
+    }
+}

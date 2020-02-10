@@ -1,19 +1,36 @@
 import React from "react";
-import Homepage from './components/Homepage/Homepage';
+import Homepage from './containers/Homepage/Homepage';
 import {Route, BrowserRouter} from 'react-router-dom';
-import Menu from './components/Menu/Menu';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import reducer from './store/reducers/reducerMenu';
+import asyncComponent from './hoc/asyncComponent';
+import './index.module.css';
+import thunk from 'redux-thunk';
 
-function App() {
-  return (
-    <BrowserRouter>
-    <div className="App">
-    <Route path="/" exact component={Homepage} />
-    <Route path="/menu" exact component={Menu} /> 
-    </div>
-  
-    </BrowserRouter>
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ;
+
+const asyncMenu = asyncComponent(() => {
+  return import('./components/Menu/Menu');
+});
+
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)) );
+
+
+const App = () =>(
+
+    <Provider store = {store}>
+      <BrowserRouter>
+        <div className="App">
+ 
+          <Route path="/" exact component={Homepage}/>
+
+          <Route path="/menu" exact component={asyncMenu} /> 
+       
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
-}
 
 
 export default App;
