@@ -16,13 +16,12 @@ class Categories extends Component{
 
 
 render(){
-let prod = [];
 let categ = [];
 let options = [];
 let prodsOfCat = [];
 let idProdsOfCat = [];
 let idProdsMenu = [];
-const opt = this.props.options;
+let opt = [];
 const {products,categories} = this.props;
 let productsArr = [];
 
@@ -31,16 +30,11 @@ let opProd = [];
 if(!this.props.loading){
 
 
-prod = categories.map(c => c.Items.map(i => i.Products));
-
     prodsOfCat = categories.map(c => c.Items.map(i => i.Products.map(p => p.Id )));
     idProdsOfCat = prodsOfCat.map(p => p.toString().split(',').map((p) => p  ) );
     idProdsMenu = products.map(p => p.Id).toString().split(',');
 
 
-
-
-//options = categories.map(c => c.Items.map(i => { return {idP : i.Id},  i.Products.map((p) => p.Parts ) }   ));
 
 
 options = categories.map ((cat)=>{ return {name: 
@@ -58,47 +52,31 @@ let idOp = "";
 let prodWithOpt = null;
 for(let key in options){
 
-   // console.log("numero categoria "+ key );
     for(let key2 in options[key].items){
-//console.log("num prod "+ key2);
-        //console.log(options[key][key2]);
         for(let key3 in options[key].items[key2].product){
      
-         //  console.log(options[key].items[key2].product);
-
             if(options[key].items[key2].product[key3] != null){
 
              for(let key4 in options[key].items[key2].product[key3]){
-               //  console.log(options[key].items[key2].product[key3].id);
                  idPr = options[key].items[key2].product[key3].id;
                
                 for(let key5 in options[key].items[key2].product[key3].parts){
-                   //console.log(options[key].items[key2].product[key3].parts[key5]);
         
                    prodWithOpt = products.find(p => p.Id === idPr);
                     for(let key6 in options[key].items[key2].product[key3].parts[key5]){
-                     // console.log(options[key].items[key2].product[key3].parts[key5][key6].Id);
                       
                         idOp = options[key].items[key2].product[key3].parts[key5][key6].Id;   
                         o = products.find(p => p.Id === idOp);
                         opProd.push({...prodWithOpt, opt: o});
                     }
-                   //cercare opzione by id
-
                 }
-               
-             }
-             
-             
-          } 
-            
+             }  
+          }  
         }
-
     }
-  
 }
 
-console.log(opProd);
+
 
 
 
@@ -109,15 +87,16 @@ for(let key in idProdsMenu){
  for(let key2 in idProdsOfCat){
 
     if( idProdsOfCat[key2].find(p => p === idProdsMenu[key])){
-    productsArr.push({prods : <Product key = {products[key].Id}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}   /> , cat: key2  } 
+
+        opt = opProd.filter(p => p.Id === products[key].Id);
+
+    productsArr.push({prods : <Product key = {products[key].Id}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  opts = {opt.map(o => <Option key = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} />)} /> , cat: key2  } 
         );
 
-    }
-        
+
+    }       
 }
-
-
-        
+       
 }   
 
 

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Categories from './Categories/Categories';
-import Sauces from './Sauces/Sauces';
-import Modal from '../UI/Modal/Modal';
-import Options from '../Menu/Options/Options';
+
+
 
 class Menu extends Component{
 
@@ -19,7 +18,7 @@ this.setState({purchasing:true});
 
 purchasingCancelledHandler = () =>{
     this.setState({purchasing:false});
-    }
+}
     
 
 
@@ -30,7 +29,7 @@ render(){
 <Navbar/>
 
 <h1>Il Panino di Zio Frank </h1>
-<Options />
+
 
 
 <Categories/>
@@ -43,5 +42,3 @@ render(){
 };
 
 export default Menu;
-
-//<Modal show = {this.state.purchasing} clicked = {this.purchasingCancelledHandler}>  </Modal>

@@ -16,10 +16,9 @@ return(
         <h1>A Modal</h1>
        
 
-
         {props.children}
 
-        <button className="Button" onClick={props.modalClosed}>Dismiss</button>
+        <button className="Button" onClick={props.modalClosed}>Cancel</button>
     </div>
     </div>
     );
