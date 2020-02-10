@@ -51,38 +51,39 @@ render(){
 
 </div>
 
-{  this.state.show ?
+{  this.state.show && this.props.opts.length > 0 ?
 <Modal show = {  this.state.show}  modalClosed = {this.hideModal}  > 
 <div>
 
-{this.props.opts.length === 0 ? <h3>Prodotto aggiunto al carrello </h3>  : null}
 
 
 {op2.length > 0 ? 
 <div>
-<b>Cottura</b>
+<b className = "OptionType">Cottura</b>
 <p> {op2}</p>
 </div>
 : null}   
 
 {op3.length > 0 ? 
 <div>
-<b>Salsa panino</b>
+<b className = "OptionType">Salsa </b>
 <p> {op3}</p>
 </div>
 : null} 
 
 {op4.length > 0 ? 
 <div>
-<b>Bibita</b>
+<b className = "OptionType">Bibita</b>
 <p> {op4}</p>
+
 </div>
 : null} 
 
 {this.props.sauces ?
-<div> <b> Salsa patatine</b>
+<div> <b className = "OptionType"> Salsa patatine</b>
 <p> {this.props.sauces}</p>
 </div> : null}
+
 </div>
 </Modal>  : null}
 

@@ -31,7 +31,6 @@ render(){
 <h1>Il Panino di Zio Frank </h1>
 
 
-
 <Categories/>
 
 

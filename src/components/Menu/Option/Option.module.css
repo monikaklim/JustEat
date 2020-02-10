@@ -10,9 +10,14 @@
     width:50%;
     margin:auto;
     cursor: pointer;
+    padding:8px;
 }
 .Option:hover{
     background-color: #ccc;
     box-shadow: 0 2px 3px #eee;
 
+}
+.OptionType{
+   font-size:25px; 
+  color: #521751;
 }
