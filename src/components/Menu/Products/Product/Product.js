@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Modal from '../../../UI/Modal/Modal';
 import './Product.module.css';
-import { render } from 'react-dom';
 
 class Product extends Component{
 
@@ -9,10 +8,18 @@ class Product extends Component{
 
         show:false
     }
+
+
+
     showModal = () =>{
         this.setState({show : true});
         }
 
+
+        hideModal = () =>{
+            this.setState({show : false});
+            }
+    
  
 render(){
 
@@ -24,15 +31,15 @@ render(){
 
     return(
 <div>
-<ul className="Product" onClick = "showModal()" >
+<ul className="Product" onClick = {this.showModal} >
 
     <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{this.props.price} € </b> </li>
-    <li>{this.props.opts}</li>
+
    
 </ul>
-
+<Modal show = {this.state.show}  modalClosed = {this.hideModal}  > {this.props.opts }  </Modal>
 </div>
  
     );

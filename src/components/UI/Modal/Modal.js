@@ -5,20 +5,21 @@ import './Modal.module.css';
 const modal = (props) => {
 
 
-const cssClasses = ["Modal", props.show  ? "ModalOpen"  :  "ModalClosed" ];
+
 
 
 return(
     <div>
     <Backdrop show ={props.show}  clicked = {props.modalClosed}/>
 
-    <div className={cssClasses.join(' ')}>
-        <h1>A Modal</h1>
+    <div className= "Modal"  style = {{transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
+    opacity: props.show ? '1':'0' }}>
+        <h1>Opzioni: </h1>
        
 
         {props.children}
 
-        <button className="Button" onClick={props.modalClosed}>Cancel</button>
+        <button className="Button" >Conferma</button>
     </div>
     </div>
     );

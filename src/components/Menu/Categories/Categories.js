@@ -10,8 +10,7 @@ import Option from '../Options/Option/Option';
 class Categories extends Component{
 
     componentDidMount(){
-        this.props.onFetchCategories();
-        this.props.onFetchOptions();
+        this.props.onFetchData();
     }
 
 
@@ -66,7 +65,9 @@ for(let key in options){
                     for(let key6 in options[key].items[key2].product[key3].parts[key5]){
                       
                         idOp = options[key].items[key2].product[key3].parts[key5][key6].Id;   
+
                         o = products.find(p => p.Id === idOp);
+                      
                         opProd.push({...prodWithOpt, opt: o});
                     }
                 }
@@ -79,8 +80,6 @@ for(let key in options){
 
 
 
-
-
 for(let key in idProdsMenu){
 
 
@@ -88,8 +87,10 @@ for(let key in idProdsMenu){
 
     if( idProdsOfCat[key2].find(p => p === idProdsMenu[key])){
 
-        opt = opProd.filter(p => p.Id === products[key].Id);
 
+        opt = opProd.filter((p) => p.Id === products[key].Id);
+       opt = opt.filter((op,index,self) => index === self.findIndex((o) => (op.opt.Name === o.opt.Name && op.opt.Id === o.opt.Id  ) ));
+       
     productsArr.push({prods : <Product key = {products[key].Id}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  opts = {opt.map(o => <Option key = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} />)} /> , cat: key2  } 
         );
 
@@ -108,7 +109,6 @@ for(let key in categories){
 }
 
 
-console.log(productsArr);
 
     return(
         <div> 
@@ -131,8 +131,7 @@ console.log(productsArr);
 
     const mapDispatchToProps = dispatch => {
         return{
-        onFetchCategories: () => dispatch(actions.fetchProducts()),
-        onFetchOptions: () => dispatch(actions.fetchOptions())
+        onFetchData: () => dispatch(actions.fetchData())
         };
     };
 
