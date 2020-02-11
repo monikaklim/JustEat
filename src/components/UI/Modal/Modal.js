@@ -1,6 +1,7 @@
 import React from 'react';
 import Backdrop from '../Backdrop/Backdrop';
 import './Modal.module.css';
+import {NavLink} from 'react-router-dom';
 
 const modal = (props) => {
 
@@ -17,7 +18,9 @@ return(
 
         {props.children}
 
+      <NavLink to="/checkout">
         <button className="Button"  onClick = {props.clicked} disabled = {props.disabled}>Conferma</button>
+        </NavLink>
         </div>    
     </div> 
     

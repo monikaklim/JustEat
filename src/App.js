@@ -9,6 +9,7 @@ import './index.module.css';
 import thunk from 'redux-thunk';
 import reducerOrder from "./store/reducers/reducerOrder";
 
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ;
 
 const asyncMenu = asyncComponent(() => {
@@ -36,7 +37,7 @@ const App = () =>(
           <Route path="/" exact component={Homepage}/>
 
           <Route path="/menu" exact component={asyncMenu} /> 
-       
+
           <Route path="/checkout" exact component={asyncCheckout} /> 
         </div>
       </BrowserRouter>
