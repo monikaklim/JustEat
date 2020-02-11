@@ -6,7 +6,7 @@ import './Option.module.css';
 
 
     return(
-    <div className="Option" onClick = {props.clicked}>
+    <div className="Option" onClick = {props.clickOpt}>
     <b>{props.name}  <i style = {{color:'red'}}>{props.syn} </i>  </b>
 
     </div>

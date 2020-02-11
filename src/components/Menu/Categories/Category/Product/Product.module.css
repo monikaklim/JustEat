@@ -16,3 +16,11 @@
     background-color: #ccc;
     box-shadow: 0 2px 3px #521751;
 }
+
+.Note {
+width:80%;
+height: 70px;
+outline:none;
+margin: auto; 
+border: 1px solid #521751;
+}

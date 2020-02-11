@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Modal from '../../../../UI/Modal/Modal';
 import './Product.module.css';
-
+import * as actions from '../../../../../store/actions/index';
+import {connect} from 'react-redux';
 
 class Product extends Component{
 
@@ -16,6 +17,7 @@ class Product extends Component{
         hideModal = () =>{
             this.setState({show : false});
             localStorage.clear();
+            this.props.onCancelOrder();
             }
         
   
@@ -39,7 +41,7 @@ render(){
       
 <div>
     <div>
-<ul className="Product" onClick = {this.props.opts.length > 0 ? this.showModal : this.props.clicked }>
+<ul className="Product" onClick = {this.props.opts.length > 0 ? this.showModal : this.props.clickProd }>
     <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{this.props.price} € </b> </li>
@@ -48,7 +50,7 @@ render(){
 </div>
 
 {  this.state.show && this.props.opts.length > 0 ?
-<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = {this.props.clicked} > 
+<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = {this.props.clickProd} > 
 <div>
 <h2>Opzioni</h2>
 {op2.length > 0 ? 
@@ -78,6 +80,11 @@ render(){
 <p> {this.props.sauces}</p>
 </div> : null}
 
+
+<hr/>
+<p>Note</p>
+<textarea placeholder = "Intolleranze, allergie, ecc..." className = "Note"></textarea>
+
 </div>
 </Modal>  : null}
 
@@ -89,4 +96,14 @@ render(){
 
 
 }
-export default Product;
+
+
+const mapDispatchToProps = dispatch => {
+    return{
+    onCancelOrder: () => dispatch(actions.cancelOrder())
+    };
+};
+
+
+
+export default connect(null,mapDispatchToProps)(Product);

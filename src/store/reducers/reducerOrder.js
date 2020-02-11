@@ -4,18 +4,22 @@ import {updateObject} from '../../utility/utility';
 const initialState = {
     product: null,
     options: [],
-    price:0
+    price:0,
+    disable:false,
+
 }
 
 
 const addOption = ( state, action ) => {
-    
-if(action.option === null)
+  
+if(action.option === null )
 {
     return state;
-}else{
+}
+else{
     return updateObject( state,
-        { options:  state.options.concat(action.option)});
+        { options:  state.options.concat(action.option)
+        });
 }
 };
 
@@ -28,7 +32,10 @@ const addProduct = ( state, action ) => {
     };
     
 
-
+const cancelOrder = (state) =>{
+    state = initialState;
+    return state;
+}
 
 
 
@@ -37,7 +44,8 @@ const reducerOrder = (state = initialState, action) =>{
     switch(action.type){
         case actionTypes.ADD_OPTION: return addOption( state, action);
         case actionTypes.ADD_PRODUCT: return addProduct( state, action);
-    
+        case actionTypes.CANCEL_ORDER: return cancelOrder( state, action);
+
         default: return state;
     }
 };

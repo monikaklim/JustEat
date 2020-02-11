@@ -17,7 +17,7 @@ return(
 
         {props.children}
 
-        <button className="Button"  onClick = {props.clicked}>Conferma</button>
+        <button className="Button"  onClick = {props.clicked} disabled = {props.disabled}>Conferma</button>
         </div>    
     </div> 
     
