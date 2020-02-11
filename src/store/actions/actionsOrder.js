@@ -12,7 +12,6 @@ export const addOption = (step,option) =>{
     opt = option;
    }
 
-
     return{
         type: actionTypes.ADD_OPTION,
         option:opt
@@ -25,8 +24,9 @@ export const addProduct = (product) =>{
 
   localStorage.setItem(product.Id,product); 
     return{
-        type: actionTypes.ADD_PRODUCT,
-       product:product
+     type: actionTypes.ADD_PRODUCT,
+       product:product,
+       price:product.Price
     };
 };
 
@@ -35,3 +35,5 @@ export const cancelOrder = () =>{
           type: actionTypes.CANCEL_ORDER
       };
   };
+
+  

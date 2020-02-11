@@ -4,9 +4,7 @@ import {updateObject} from '../../utility/utility';
 const initialState = {
     product: null,
     options: [],
-    price:0,
-    disable:false,
-
+    price: ''
 }
 
 
@@ -27,16 +25,19 @@ else{
 
 const addProduct = ( state, action ) => {
       return updateObject( state,
-            { product:action.product});
+            { product:action.product,
+              price: action.price
+            });
     
     };
+
+
     
 
 const cancelOrder = (state) =>{
     state = initialState;
     return state;
 }
-
 
 
 const reducerOrder = (state = initialState, action) =>{
@@ -49,5 +50,12 @@ const reducerOrder = (state = initialState, action) =>{
         default: return state;
     }
 };
+
+
+
+
+
+
+
 
 export default reducerOrder;

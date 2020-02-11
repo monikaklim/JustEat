@@ -9,6 +9,7 @@ import Option from '../Option/Option';
 
 class Categories extends Component{
 
+ 
     componentDidMount(){
         this.props.onFetchData();
     }
@@ -83,7 +84,7 @@ for(let key in options){
 
 
 
-sauces = sauces.map(s => <Option key = {s.Id} name = {s.Name} step = "1" clickOpt = {() => this.props.onAddOption(1,s)} />);
+sauces = sauces.map(s => <Option key = {s.Id} name = {s.Name} step = "5" clickOpt = {() => this.props.onAddOption(5,s)} />);
 
 for(let key in idProdsMenu){
 
@@ -95,7 +96,7 @@ for(let key in idProdsMenu){
      opt = opProd.filter((p) => p.Id === products[key].Id);
      opt = opt.filter((op,index,self) => index === self.findIndex((o) => (op.opt.Name === o.opt.Name && op.opt.Id === o.opt.Id  ) ));
      
-    productsArr.push({prods : <Product key = {products[key].Id}  clickProd = {() => this.props.onAddProduct(products[key])}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  sauces = { products[key].Syn === "Menù"  ? sauces : null} opts = {opt.map(o => <Option key = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} step = {o.step} clickOpt= {() => this.props.onAddOption(o.step, o.opt)} />)} /> , cat: key2  } 
+    productsArr.push({prods : <Product key = {products[key].Id} clickProd = {() => this.props.onAddProduct(products[key])}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  sauces = { products[key].Syn === "Menù"  ? sauces : null} opts = {opt.map(o => <Option key = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} step = {o.step} clickOpt= {() => this.props.onAddOption(o.step, o.opt)} />)} /> , cat: key2  } 
         );
 
 
