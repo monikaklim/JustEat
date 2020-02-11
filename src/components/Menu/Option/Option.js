@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Option.module.css';
 
-class Option extends Component{
 
-    render(){
-  
+ const option = (props) => {
+
+
     return(
-    <div className="Option">
-    <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i>  </b>
-   
+    <div className="Option" onClick = {props.clicked}>
+    <b>{props.name}  <i style = {{color:'red'}}>{props.syn} </i>  </b>
+
     </div>
    
     );
     }
-};
-export default Option;
+
+
+
+export default option;

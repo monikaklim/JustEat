@@ -17,7 +17,6 @@
     box-shadow: 0 2px 3px #eee;
 
 }
-.OptionType{
-   font-size:25px; 
-  color: #521751;
+hr{
+border: 1px dashed #521751;
 }

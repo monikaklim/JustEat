@@ -6,6 +6,33 @@ width:100%;
 box-sizing: border-box;
 }
 
+.Info{
+    border: 1px solid #521751;
+    float:left;
+    border-radius: 6px;
+    padding:10px;
+    cursor: default;
+    background-color: white;
+    color:#521751;
+    font-weight: bold;
+}
+
+.Cart{
+
+    border: 1px solid #521751;
+    float:right;
+    border-radius: 6px;
+    padding:5px;
+    cursor: default;
+    background-color: white;
+    color:black;
+    font-weight: bold;
+    width:50px;
+    cursor: pointer;
+}
+
+
+
 .Link{
 outline:none;
 float:right;

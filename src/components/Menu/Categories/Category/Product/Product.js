@@ -1,29 +1,25 @@
 import React, { Component } from 'react';
-import Modal from '../../../UI/Modal/Modal';
+import Modal from '../../../../UI/Modal/Modal';
 import './Product.module.css';
+
 
 class Product extends Component{
 
     state = {
-
         show:false
     }
-
-
 
     showModal = () =>{
         this.setState({show : true});
         }
 
-
         hideModal = () =>{
             this.setState({show : false});
+            localStorage.clear();
             }
+        
+  
     
-
-
-
- 
 render(){
 
     let str = '';
@@ -43,7 +39,7 @@ render(){
       
 <div>
     <div>
-<ul className="Product" onClick = { this.showModal }>
+<ul className="Product" onClick = {this.props.opts.length > 0 ? this.showModal : this.props.clicked }>
     <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{this.props.price} € </b> </li>
@@ -52,35 +48,33 @@ render(){
 </div>
 
 {  this.state.show && this.props.opts.length > 0 ?
-<Modal show = {  this.state.show}  modalClosed = {this.hideModal}  > 
+<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = {this.props.clicked} > 
 <div>
-
-
-
+<h2>Opzioni</h2>
 {op2.length > 0 ? 
 <div>
-<b className = "OptionType">Cottura</b>
+<hr/>
 <p> {op2}</p>
 </div>
 : null}   
 
 {op3.length > 0 ? 
 <div>
-<b className = "OptionType">Salsa </b>
+<hr/>
 <p> {op3}</p>
 </div>
 : null} 
 
 {op4.length > 0 ? 
 <div>
-<b className = "OptionType">Bibita</b>
+<hr/>
 <p> {op4}</p>
 
 </div>
 : null} 
 
 {this.props.sauces ?
-<div> <b className = "OptionType"> Salsa patatine</b>
+<div> <hr/>
 <p> {this.props.sauces}</p>
 </div> : null}
 
