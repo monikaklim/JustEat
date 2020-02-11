@@ -1,30 +1,53 @@
 import * as actionTypes from './actionTypes';
 
-export const addOption = (step,option) =>{
 
-    let opt = null;
 
-    if(localStorage.getItem(step)){
-        
-    }
-    else
-   { localStorage.setItem(step,option); 
-    opt = option;
-   }
-
+export const addOptionSuccess = (option) =>{
     return{
         type: actionTypes.ADD_OPTION,
-        option:opt
+        option:option
+    };
+};
+
+export const addOptionFail= () =>{
+    return{
+        type: actionTypes.ADD_OPTION_FAIL
     };
 };
 
 
 
-export const addProduct = (product) =>{
+
+export const addOption = (step,option) =>{
+    return dispatch => {
+
+    let opt = null;
+
+    if(localStorage.getItem(step)){
+       dispatch(addOptionFail()) 
+    }
+    else
+   { localStorage.setItem(step,option); 
+    opt = option;
+    dispatch(addOptionSuccess(opt));
+   }
+
+}
+};
+
+
+
+
+
+export const addProduct = (product, notes) =>{
 
   localStorage.setItem(product.Id,product); 
+  if(notes !== "")
+  localStorage.setItem("notes",notes); 
+  
     return{
      type: actionTypes.ADD_PRODUCT,
+      notes:notes,
        product:product,
        price:product.Price
     };

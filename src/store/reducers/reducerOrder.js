@@ -4,6 +4,7 @@ import {updateObject} from '../../utility/utility';
 const initialState = {
     product: null,
     options: [],
+    notes : '',
     price: ''
 }
 
@@ -22,11 +23,18 @@ else{
 };
 
 
+const addOptionFail = ( state ) => {
+    return state;
+};
+
+
+
 
 const addProduct = ( state, action ) => {
       return updateObject( state,
             { product:action.product,
-              price: action.price
+              price: action.price,
+              notes: action.notes
             });
     
     };
@@ -40,13 +48,16 @@ const cancelOrder = (state) =>{
 }
 
 
+
+
+
 const reducerOrder = (state = initialState, action) =>{
 
     switch(action.type){
         case actionTypes.ADD_OPTION: return addOption( state, action);
         case actionTypes.ADD_PRODUCT: return addProduct( state, action);
         case actionTypes.CANCEL_ORDER: return cancelOrder( state, action);
-
+        case actionTypes.ADD_OPTION_FAIL: return addOptionFail( state);
         default: return state;
     }
 };

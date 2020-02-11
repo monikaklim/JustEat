@@ -7,21 +7,24 @@ import {connect} from 'react-redux';
 class Product extends Component{
 
     state = {
-        show:false
+        show:false,
+        notes:''
     }
 
     showModal = () =>{
         this.setState({show : true});
         }
 
-        hideModal = () =>{
+    hideModal = () =>{
             this.setState({show : false});
             localStorage.clear();
             this.props.onCancelOrder();
             }
         
   
-  
+    changeHandler = (event) =>{
+                this.setState({notes: event.target.value});
+              }
 
       
      
@@ -50,13 +53,12 @@ render(){
         }
     }
 
-    
-console.log(stepMax)
+
     return(
-      
+     
 <div>
     <div>
-<ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal : this.props.clickProd }>
+<ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :  () => this.props.onAddProduct(this.props.obj, this.state.notes)  }>
     <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{this.props.price} € </b> </li>
@@ -67,7 +69,7 @@ console.log(stepMax)
 {  this.state.show && this.props.opts.length > 0 ?
 
 
-<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = {this.props.clickProd} disabled = { (stepMax  === this.props.options.length)? false : true }> 
+<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = {() => this.props.onAddProduct(this.props.obj, this.state.notes)} disabled = { (stepMax  === this.props.options.length)? false : true }> 
 <div>
 <h2>Opzioni</h2>
 {op2.length > 0 ? 
@@ -100,7 +102,7 @@ console.log(stepMax)
 
 <hr/>
 <p>Note</p>
-<textarea placeholder = "Intolleranze, allergie, ecc..." className = "Note"></textarea>
+<textarea placeholder = "Intolleranze, allergie, ecc..." className = "Notes" onChange = {this.changeHandler}></textarea>
 
 </div>
 </Modal>  : null}
@@ -115,7 +117,6 @@ console.log(stepMax)
 
 const mapStateToProps = state =>{
     return{
-     disable:state.order.disable,
      options:state.order.options
     };
 };
@@ -123,7 +124,8 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch => {
     return{
-    onCancelOrder: () => dispatch(actions.cancelOrder())
+    onCancelOrder: () => dispatch(actions.cancelOrder()),
+    onAddProduct: (product,notes) => dispatch(actions.addProduct(product,notes))
     };
 };
 
