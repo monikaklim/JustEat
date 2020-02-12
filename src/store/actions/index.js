@@ -5,5 +5,6 @@ export {
 export {
     addOption,
     addProduct,
-    cancelOrder
+    cancelOrder,
+    saveOrder
 }from './actionsOrder';

@@ -11,27 +11,10 @@ class Checkout extends Component{
 
 componentDidMount(){
 
-    if(this.props.product){
-this.saveOrderHandler();
-    }
  return this.getOrdersHandler();
 }
 
 
-saveOrderHandler = () =>{
-let order = {name: this.props.product.Name, syn: this.props.product.Syn, options: this.props.options, price:this.props.price, notes : this.props.notes}
-
-   const optionsToRemove = ["notes","2","3","4","5", this.props.product.Id ];
-
-   for (let key of optionsToRemove) {
-       if(localStorage.getItem(key))
-         localStorage.removeItem(key);
-    }
-    console.log(order)
-let keyOrder = this.props.product.Name+ " " + this.props.product.Syn;
-localStorage.setItem(keyOrder,JSON.stringify(order));
-
-}
    
 getOrdersHandler = () =>{
 let orders = [];
@@ -70,19 +53,23 @@ return orders;
 </div>
 
 <p>Totale:</p>
-<NavLink className = "LinkMenu" to = "/" > Aggiungi più prodotti </NavLink> 
+
+<div className="LinkContainer">
+<NavLink className = "LinkOrder" to = "/" > Aggiungi più prodotti </NavLink> 
 <p> <b>oppure</b></p>
-<AnimatedLink><NavLink className = "LinkMenu" to = "/" > Invia ordine </NavLink> </AnimatedLink>
+<AnimatedLink><NavLink className = "LinkOrder" to = "/" > Invia ordine </NavLink> </AnimatedLink>
+</div>
+
 </div>
 
   : 
 
 <div>
-<p><b>Il tuo carrello è vuoto. </b></p>
+<p><b>Il carrello è vuoto. </b></p>
 <br/>
 
 
-<AnimatedLink><NavLink className = "LinkMenuEmptyCart" to = "/" > Ordina ora </NavLink></AnimatedLink>
+<AnimatedLink><NavLink className = "LinkEmptyCart" to = "/" > Ordina ora </NavLink></AnimatedLink>
 
 
 </div>

@@ -17,12 +17,6 @@ class Product extends Component{
 
     hideModal = () =>{
             this.setState({show : false});
-            const optionsToRemove = ["notes","2","3","4","5", this.props.obj.Id ];
-
-            for (let key of optionsToRemove) {
-                if(localStorage.getItem(key))
-                    localStorage.removeItem(key);
-                }
             this.props.onCancelOrder();
             }
         
@@ -32,7 +26,6 @@ class Product extends Component{
               }
 
       
-     
         
     
 render(){
@@ -63,7 +56,7 @@ render(){
      
 <div>
     <div>
-<ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :  () => this.props.onAddProduct(this.props.obj, this.state.notes)  }>
+<ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :     () => this.props.onAddProduct(this.props.obj, this.state.notes)  }>
     <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{this.props.price} € </b> </li>
@@ -74,7 +67,7 @@ render(){
 {  this.state.show && this.props.opts.length > 0 ?
 
 
-<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = {() => this.props.onAddProduct(this.props.obj, this.state.notes)} disabled = { (stepMax  === this.props.options.length)? false : true }> 
+<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = { () => this.props.onAddProduct(this.props.obj, this.state.notes) } disabled = { (stepMax  === this.props.options.length)? false : true }> 
 <div>
 <h2>Opzioni</h2>
 {op2.length > 0 ? 

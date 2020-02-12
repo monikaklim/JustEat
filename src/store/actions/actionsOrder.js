@@ -41,10 +41,7 @@ export const addOption = (step,option) =>{
 
 export const addProduct = (product, notes) =>{
 
-  localStorage.setItem(product.Id,product); 
-  if(notes !== "")
-  localStorage.setItem("notes",notes); 
-  
+ 
     return{
      type: actionTypes.ADD_PRODUCT,
       notes:notes,
@@ -58,5 +55,15 @@ export const cancelOrder = () =>{
           type: actionTypes.CANCEL_ORDER
       };
   };
+
+
+
+export const saveOrder = () =>{
+
+   return{
+       type: actionTypes.SAVE_ORDER
+   };
+};
+
 
   

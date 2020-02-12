@@ -1,7 +1,7 @@
 
 .Chekout{
 width:100%;
-height:100%;
+height:auto;
 }
 
 .Orders{
@@ -10,7 +10,7 @@ height:100%;
   overflow-y: auto;  
 }
 
-.LinkMenuEmptyCart{
+.LinkEmptyCart{
 text-align:center;
 text-decoration: none;
 color: #521751;
@@ -22,8 +22,8 @@ border-radius: 6px;
 margin:auto;
 }
 
-.LinkMenu{
-    display: inline-block;
+.LinkOrder{
+   
     text-align:center;
     text-decoration: none;
     color: #521751;
@@ -32,6 +32,11 @@ margin:auto;
     cursor: pointer;
     padding:10px;
     border-radius: 6px;
-    margin:auto;
-    margin-top:10px;
+    margin:10px 30px 10px 30px;
+
+    }
+    .LinkContainer{
+      display: inline-flex; 
+      margin-top:20px;
+      margin:auto;
     }

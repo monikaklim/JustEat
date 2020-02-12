@@ -6,3 +6,4 @@ export const ADD_OPTION = 'ADD_OPTION';
 export const ADD_OPTION_FAIL = 'ADD_OPTION_FAIL';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const CANCEL_ORDER = 'CANCEL_ORDER';
+export const SAVE_ORDER = 'SAVE_ORDER';
