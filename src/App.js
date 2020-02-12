@@ -43,8 +43,8 @@ return(
         <div className="App">
  
           
-          <Route path="/" exact component={asyncMenu} /> 
-
+          <Route path="/"  exact component={asyncMenu} /> 
+          <Route path="/menu" exact component={asyncMenu} /> 
           <Route path="/checkout" exact component={asyncCheckout} /> 
         </div>
       </BrowserRouter>

@@ -8,7 +8,12 @@ const order = (props) => (
 
  <b>{props.name}   {props.syn} </b> 
 
-{props.options.map(o => <p>{o.Name} </p>)}  {props.options.map(o => <p>{o.Syn}</p>)}  
+{props.options ? 
+<div>
+{props.options.map(o => <p>{o.Name} </p>)}
+ { props.options.map(o => <p>{o.Syn}</p>) }
+  </div>
+  : null    }  
  <p> {props.price} €  </p>
  
  {props.notes ? <p>Note:  {props.notes}  </p> : null}

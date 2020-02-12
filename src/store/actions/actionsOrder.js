@@ -41,7 +41,6 @@ export const addOption = (step,option) =>{
 
 export const addProduct = (product, notes) =>{
 
- 
     return{
      type: actionTypes.ADD_PRODUCT,
       notes:notes,

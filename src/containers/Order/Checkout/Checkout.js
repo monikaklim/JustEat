@@ -4,7 +4,7 @@ import './Checkout.module.css';
 import Order from '../Order';
 import Navbar from '../../../components/Navbar/Navbar';
 import { NavLink } from 'react-router-dom';
-import {tada} from 'react-animations';
+import {pulse} from 'react-animations';
 import styled, {keyframes} from 'styled-components';
 
 class Checkout extends Component{
@@ -22,7 +22,8 @@ let keys = Object.keys(localStorage);
 
 for(let key in keys){
 let ord = JSON.parse(localStorage.getItem(keys[key]));
-   console.log(ord.name)
+  
+   if(keys[key] !== "price")
    orders.push( <Order name = {ord.name} syn ={ord.syn} options = {ord.options} price = {ord.price} notes = {ord.notes} />)
 }
 
@@ -31,10 +32,11 @@ return orders;
 
 
 
-    render(){
+render(){
 
         const AnimatedLink = styled.div`
-        animation: 2s ${ keyframes`${tada}`} infinite
+        
+        animation: 2s ${ keyframes`${pulse}`} infinite
         `;
         
 
@@ -52,7 +54,7 @@ return orders;
 
 </div>
 
-<p>Totale:</p>
+<p>Totale: {localStorage.getItem("price")} € </p>
 
 <div className="LinkContainer">
 <NavLink className = "LinkOrder" to = "/" > Aggiungi più prodotti </NavLink> 

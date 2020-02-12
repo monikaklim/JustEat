@@ -56,7 +56,7 @@ render(){
      
 <div>
     <div>
-<ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :     () => this.props.onAddProduct(this.props.obj, this.state.notes)  }>
+<ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :  () => this.props.onAddProduct(this.props.obj, this.state.notes)  }>
     <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{this.props.price} € </b> </li>

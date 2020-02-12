@@ -5,8 +5,9 @@ const initialState = {
     product: null,
     options: [],
     notes : '',
-    price: '',
-    orders:[]
+    price: 0,
+    orders:[],
+    totalPrice:0
 }
 
 
@@ -37,7 +38,8 @@ const addProduct = ( state, action ) => {
     let order = {name: action.product.Name, syn: action.product.Syn, options: state.options, price:action.price, notes : action.notes}
     let keyOrder = action.product.Name+ " " +  action.product.Syn;
     localStorage.setItem(keyOrder,JSON.stringify(order));
-
+    let totalPrice = state.totalPrice + action.price;
+    localStorage.setItem("price",totalPrice);
     const optionsToRemove = ["2","3","4","5" ];
  
     for (let key of optionsToRemove) {
@@ -49,6 +51,7 @@ const addProduct = ( state, action ) => {
       return updateObject( state,
             { product:action.product,
               price: action.price,
+              totalPrice: totalPrice,
               notes: action.notes,
               options:[]
             });
