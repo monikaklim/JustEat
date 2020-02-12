@@ -32,8 +32,6 @@ let opProd = [];
 if(!this.props.loading){
 
 
-console.log(this.props.options);
-
     prodsOfCat = categories.map(c => c.Items.map(i => i.Products.map(p => p.Id )));
     idProdsOfCat = prodsOfCat.map(p => p.toString().split(',').map((p) => p  ) );
     idProdsMenu = products.map(p => p.Id).toString().split(',');

@@ -1,14 +1,37 @@
-.Checkout{
 
-    top: 20%;
-    left: 25%;
-    width: 80%;
-border: 1px solid #eee;
-box-shadow: 0 2px 2px #ccc;
-background-color: white;
-padding: 10px;
-text-align: center;
-overflow-y: auto;
-margin:auto;
-
+.Chekout{
+width:100%;
+height:100%;
 }
+
+.Orders{
+
+  height: 60%;
+  overflow-y: auto;  
+}
+
+.LinkMenuEmptyCart{
+text-align:center;
+text-decoration: none;
+color: #521751;
+background-color: white;
+border: 1px solid #521751;
+cursor: pointer;
+padding:10px;
+border-radius: 6px;
+margin:auto;
+}
+
+.LinkMenu{
+    display: inline-block;
+    text-align:center;
+    text-decoration: none;
+    color: #521751;
+    background-color: white;
+    border: 1px solid #521751;
+    cursor: pointer;
+    padding:10px;
+    border-radius: 6px;
+    margin:auto;
+    margin-top:10px;
+    }

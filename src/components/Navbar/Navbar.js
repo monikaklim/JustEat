@@ -9,11 +9,12 @@ const navbar = () =>(
     <div className = "Info">
     <li>Costo di consegna: € 2,90 </li>
    </div>
-   <li className= "Cart"> <i className="material-icons">shopping_cart</i> </li>
-    <li >  <NavLink className = "Link" to = "/menu" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
-    <li >  <NavLink className = "Link" to= "/"  exact  activeClassName ="ActiveLink">Home</NavLink></li>
+   <li> <NavLink  className= "Cart" to= "/checkout" exact activeClassName = "ActiveLink"> <i className="material-icons">shopping_cart</i> </NavLink> </li>
+    <li >  <NavLink className = "Link" to = "/" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
+  
 </ul>
 
 
 );
 export default navbar;
+//  <li >  <NavLink className = "Link" to= "/"  exact  activeClassName ="ActiveLink">Home</NavLink></li>
