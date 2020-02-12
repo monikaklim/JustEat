@@ -68,6 +68,8 @@ return orders;
 {this.componentDidMount()  }
 
 </div>
+
+<p>Totale:</p>
 <NavLink className = "LinkMenu" to = "/" > Aggiungi più prodotti </NavLink> 
 <p> <b>oppure</b></p>
 <AnimatedLink><NavLink className = "LinkMenu" to = "/" > Invia ordine </NavLink> </AnimatedLink>

@@ -17,8 +17,9 @@ if(action.option === null )
 }
 else{
     return updateObject( state,
-        { options:  state.options.concat(action.option)
-        });
+            { options:  state.options.concat(action.option)
+            });
+  
 }
 };
 
@@ -31,6 +32,10 @@ const addOptionFail = ( state ) => {
 
 
 const addProduct = ( state, action ) => {
+
+    if(state.options.length > 0){
+    state.options = initialState.options;
+    }
       return updateObject( state,
             { product:action.product,
               price: action.price,

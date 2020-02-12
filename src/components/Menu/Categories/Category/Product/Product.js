@@ -17,7 +17,12 @@ class Product extends Component{
 
     hideModal = () =>{
             this.setState({show : false});
-            localStorage.clear();
+            const optionsToRemove = ["notes","2","3","4","5", this.props.obj.Id ];
+
+            for (let key of optionsToRemove) {
+                if(localStorage.getItem(key))
+                    localStorage.removeItem(key);
+                }
             this.props.onCancelOrder();
             }
         
