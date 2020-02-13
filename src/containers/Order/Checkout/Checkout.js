@@ -6,30 +6,9 @@ import Navbar from '../../../components/Navbar/Navbar';
 import { NavLink } from 'react-router-dom';
 import {pulse} from 'react-animations';
 import styled, {keyframes} from 'styled-components';
+import Cart from '../Cart/Cart';
 
 class Checkout extends Component{
-
-componentDidMount(){
-
- return this.getOrdersHandler();
-}
-
-
-   
-getOrdersHandler = () =>{
-let orders = [];
-let keys = Object.keys(localStorage);
-
-for(let key in keys){
-let ord = JSON.parse(localStorage.getItem(keys[key]));
-  
-   if(keys[key] !== "price")
-   orders.push( <Order name = {ord.name} syn ={ord.syn} options = {ord.options} price = {ord.price} notes = {ord.notes} />)
-}
-
-return orders;
-}
-
 
 
 render(){
@@ -50,11 +29,11 @@ render(){
 <div>
 <div className = "Orders">
 
-{this.componentDidMount()  }
+<Cart/>
 
 </div>
 
-<p>Totale: {localStorage.getItem("price")} € </p>
+<p className = "Price">Totale: {localStorage.getItem("price")} € </p>
 
 <div className="LinkContainer">
 <NavLink className = "LinkOrder" to = "/" > Aggiungi più prodotti </NavLink> 

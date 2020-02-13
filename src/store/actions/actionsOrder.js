@@ -56,13 +56,12 @@ export const cancelOrder = () =>{
   };
 
 
-
-export const saveOrder = () =>{
-
-   return{
-       type: actionTypes.SAVE_ORDER
-   };
-};
+  export const removeOrder = (order) =>{
+    return{
+        type: actionTypes.REMOVE_ORDER,
+        order:order
+    };
+}
 
 
   

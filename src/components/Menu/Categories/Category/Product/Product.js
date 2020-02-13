@@ -3,6 +3,7 @@ import Modal from '../../../../UI/Modal/Modal';
 import './Product.module.css';
 import * as actions from '../../../../../store/actions/index';
 import {connect} from 'react-redux';
+import {Route, Link} from 'react-router-dom';
 
 class Product extends Component{
 
@@ -55,16 +56,21 @@ render(){
     return(
      
 <div>
-    <div>
-<ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :  () => this.props.onAddProduct(this.props.obj, this.state.notes)  }>
+<Route path = "/options" component = {Modal} />
+    <div >
+  <Link to = {this.props.opts.length > 0 ? "/modal" : "/cart"} className = "ProductLink" > <ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :  () => this.props.onAddProduct(this.props.obj, this.state.notes)  }> 
     <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{this.props.price} € </b> </li>
 </ul>
 
+</Link>
+
 </div>
 
 {  this.state.show && this.props.opts.length > 0 ?
+
+
 
 
 <Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = { () => this.props.onAddProduct(this.props.obj, this.state.notes) } disabled = { (stepMax  === this.props.options.length)? false : true }> 

@@ -1,4 +1,5 @@
 .Product {
+
     width:80%;
     margin: auto;
     padding: 10px;
@@ -10,14 +11,24 @@
     text-align: center;
     cursor: pointer;
     list-style:none;
+ 
 }
 
+.ProductLink{
+    text-decoration: none;
+color:black;
+}
+
+
+
 .Product:hover{
+    text-decoration: none;
     background-color: #ccc;
     box-shadow: 0 2px 3px #521751;
 }
 
 .Notes {
+    text-decoration: none;
 width:80%;
 height: 70px;
 outline:none;

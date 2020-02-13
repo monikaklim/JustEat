@@ -17,12 +17,21 @@
     overflow-y: auto;
  
 }
-.Button {
-   bottom:10px;
+.ConfirmButton {
+bottom:10px;
+outline:none;
+margin-left:1px;
+color: white;
+background-color: #521751;
+border: 1px solid white;
+cursor: pointer;
+text-decoration: none;
+padding:10px;
+border-radius: 6px;
 }
 
 
-.Button:disabled {
+.ConfirmButton:disabled {
    cursor:not-allowed;
    background-color: #ccc;
    border: 1px solid #521751;
@@ -35,7 +44,7 @@
         left: calc(50% - 200px);
     
     }
-    .Button{
+    .ConfirmButton{
         width:40%
     }
 }

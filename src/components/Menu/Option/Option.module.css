@@ -15,8 +15,16 @@
 .Option:hover{
     background-color: #ccc;
     box-shadow: 0 2px 3px #eee;
-
 }
+
 hr{
 border: 1px dashed #521751;
+}
+
+.Option:focus{
+ 
+    border: 1px solid #521751;
+    box-shadow: 0 2px 2px #ccc;
+    background-color: #DECEF7;
+
 }

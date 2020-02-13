@@ -1,0 +1,8 @@
+.Cart{
+height:50%;
+width:100%;
+margin:auto;
+display:block;
+float:right;
+overflow-y:auto;
+}

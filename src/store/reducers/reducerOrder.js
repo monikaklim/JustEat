@@ -18,6 +18,7 @@ if(action.option === null )
     return state;
 }
 else{
+  
     return updateObject( state,
             { options:  state.options.concat(action.option)
             });
@@ -35,7 +36,7 @@ const addOptionFail = ( state ) => {
 
 const addProduct = ( state, action ) => {
 
-    let order = {name: action.product.Name, syn: action.product.Syn, options: state.options, price:action.price, notes : action.notes}
+    let order = {idOrder: action.product.Id, name: action.product.Name, syn: action.product.Syn, options: state.options, price:action.price, notes : action.notes}
     let keyOrder = action.product.Name+ " " +  action.product.Syn;
     localStorage.setItem(keyOrder,JSON.stringify(order));
     let totalPrice = state.totalPrice + action.price;
@@ -47,12 +48,15 @@ const addProduct = ( state, action ) => {
           localStorage.removeItem(key);
      }
 
+    let arrayOrd = [...state.orders];
+    arrayOrd.push(order);
 
       return updateObject( state,
             { product:action.product,
               price: action.price,
               totalPrice: totalPrice,
               notes: action.notes,
+              orders: arrayOrd, 
               options:[]
             });
     
@@ -68,29 +72,35 @@ const cancelOrder = (state) =>{
                 if(localStorage.getItem(key))
                     localStorage.removeItem(key);
                 }
-    state = initialState;
+    state.options = [];
     return state;
 }
 
 
-const saveOrder = (state)=>{
 
-    let order = {name: state.product.Name, syn: state.product.Syn, options: state.options, price:state.price, notes : state.notes}
-    let keyOrder = state.product.Name+ " " +  state.product.Syn;
-    localStorage.setItem(keyOrder,JSON.stringify(order));
+const removeOrder  = (state,action) =>{
+let keyOrder = action.order.name + " " + action.order.syn;
+localStorage.removeItem(keyOrder);
 
-    const optionsToRemove = ["notes","2","3","4","5", state.product.Id ];
- 
-    for (let key of optionsToRemove) {
-        if(localStorage.getItem(key))
-          localStorage.removeItem(key);
-     }
-   
-     return updateObject( state,
-        { orders:  state.orders.concat(order)
+let idOrder = state.options.findIndex(i=>i.Id  === action.order.Id);
+let arrayOrd = [...state.orders];
+
+arrayOrd.splice(idOrder, 1);
+
+
+console.log()
+    return updateObject( state,
+        {
+         
         });
 
 }
+
+
+
+
+
+
 
 
 
@@ -103,7 +113,7 @@ const reducerOrder = (state = initialState, action) =>{
         case actionTypes.ADD_PRODUCT: return addProduct( state, action);
         case actionTypes.CANCEL_ORDER: return cancelOrder( state, action);
         case actionTypes.ADD_OPTION_FAIL: return addOptionFail( state);
-        case actionTypes.SAVE_ORDER: return saveOrder(state);
+        case actionTypes.REMOVE_ORDER: return removeOrder(state,action);
         default: return state;
     }
 };
