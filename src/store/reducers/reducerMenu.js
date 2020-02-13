@@ -18,6 +18,7 @@ const fetchDataStart = ( state ) => {
 };
 
 const fetchDataSuccess = ( state, action ) => {
+    localStorage.setItem("price",0);
     return updateObject( state, {
         products: action.products,
         categories: action.categories,

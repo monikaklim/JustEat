@@ -18,7 +18,7 @@ return this.getOrdersHandler();
         let ord = JSON.parse(localStorage.getItem(keys[key]));
           
            if(keys[key] !== "price")
-           orders.push( <Order key = {ord.idOrder} id = {ord.idOrder} name = {ord.name} syn ={ord.syn} options = {ord.options} price = {ord.price} notes = {ord.notes} qnt = {ord.qnt} />)
+           orders.push( <Order key = {ord.idOrder} id = {ord.idOrder} name = {ord.name} syn ={ord.syn} options = {ord.options} totPrice = {ord.totPrice} productPrice = {ord.productPrice} notes = {ord.notes} qnt = {ord.qnt}  obj  = {ord} />)
         }
         
         return orders;
@@ -33,7 +33,7 @@ render(){
 return(
 
 <div className = "Cart">
-<h4>Totale ordine  {localStorage.getItem("price") ? Number(localStorage.getItem("price")).toFixed(2): "0.00" } €</h4>
+<h4>Totale ordine  {Number(localStorage.getItem("price")).toFixed(2) } €</h4>
 {this.componentDidMount()  }
 
 

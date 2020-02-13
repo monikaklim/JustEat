@@ -54,13 +54,10 @@ export const cancelOrder = () =>{
   };
 
 
-  export const removeOrder = (orderId,orderName,orderSyn,price) =>{
+  export const removeOrder = (order) =>{
     return{
         type: actionTypes.REMOVE_ORDER,
-        orderId:orderId,
-        orderName:orderName,
-        orderSyn:orderSyn,
-        price:price
+        order:order
     };
 }
 

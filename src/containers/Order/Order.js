@@ -8,10 +8,10 @@ const order = (props) => (
 
  
    <ul className = "Order" > 
- <Link to = "/cart"><button className="RemoveOrderButton"  onClick= { () => props.onRemoveOrder(props.idOrder,props.name,props.syn,props.price) }  > <i className="material-icons">close</i></button> </Link> 
+ <Link to = "/cart"><button className="RemoveOrderButton"  onClick= { () => props.onRemoveOrder(props.obj) }  > <i className="material-icons">close</i></button> </Link> 
 
- <b>{props.name}   {props.syn} </b> 
-<p> x {props.qnt}</p>
+ <b>  x {props.qnt} {props.name}   {props.syn} </b> 
+
 {props.options ? 
 <div>
 
@@ -19,7 +19,7 @@ const order = (props) => (
  { props.options.map(o => <p>{o.Syn}</p>) }
   </div>
   : null    }  
- <p> {props.price.toFixed(2)} €  </p>
+ <p> {Number(props.totPrice).toFixed(2)} €  </p>
  
  {props.notes ? <p>Note:  {props.notes}  </p> : null}
    
@@ -30,7 +30,7 @@ const order = (props) => (
 
 const mapDispatchToProps = dispatch => {
   return{
-  onRemoveOrder: (orderId,orderName,orderSyn,price) => dispatch(actions.removeOrder(orderId,orderName,orderSyn,price))
+  onRemoveOrder: (order) => dispatch(actions.removeOrder(order))
   };
 };
 

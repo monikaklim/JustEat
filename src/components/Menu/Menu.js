@@ -22,7 +22,7 @@ render(){
 </div>
 
 <div className = "CartContainer">
-
+<h2>   <i className="material-icons">shopping_cart</i>  </h2>
 <Route path = "/cart" component = {Cart} />
 </div>
 
