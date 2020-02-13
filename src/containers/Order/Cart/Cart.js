@@ -18,7 +18,7 @@ return this.getOrdersHandler();
         let ord = JSON.parse(localStorage.getItem(keys[key]));
           
            if(keys[key] !== "price")
-           orders.push( <Order key = {ord.idOrder} id = {ord.idOrder} name = {ord.name} syn ={ord.syn} options = {ord.options} price = {ord.price} notes = {ord.notes} />)
+           orders.push( <Order key = {ord.idOrder} id = {ord.idOrder} name = {ord.name} syn ={ord.syn} options = {ord.options} price = {ord.price} notes = {ord.notes} qnt = {ord.qnt} />)
         }
         
         return orders;

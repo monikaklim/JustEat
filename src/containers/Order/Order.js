@@ -11,7 +11,7 @@ const order = (props) => (
  <Link to = "/cart"><button className="RemoveOrderButton"  onClick= { () => props.onRemoveOrder(props.idOrder,props.name,props.syn,props.price) }  > <i className="material-icons">close</i></button> </Link> 
 
  <b>{props.name}   {props.syn} </b> 
-
+<p> x {props.qnt}</p>
 {props.options ? 
 <div>
 
