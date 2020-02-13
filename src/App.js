@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Cart from './containers/Order/Cart/Cart';
+import Modal from './components/UI/Modal/Modal';
 import {Route, BrowserRouter, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
@@ -45,7 +45,7 @@ return(
         <Route path="/checkout" exact  component={asyncCheckout} /> 
           <Route path="/"  component={asyncMenu} /> 
           </Switch>
-        
+       
          
         </div>
       </BrowserRouter>

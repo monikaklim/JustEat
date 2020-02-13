@@ -32,9 +32,12 @@ class Product extends Component{
               }
 
       
-        
+           
     
 render(){
+
+
+   
 
     let str = '';
     if(this.props.desc){
@@ -115,7 +118,8 @@ render(){
 
 </div>
 </Modal>  : null}
-<Route path = "/options" component = {Modal} />
+
+<Route path = "/:opt" component = {Modal} />
 </div>
   );
 

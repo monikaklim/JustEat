@@ -27,7 +27,7 @@ export const addOption = (step,option) =>{
        dispatch(addOptionFail()) 
     }
     else
-   { localStorage.setItem(step,option); 
+   { localStorage.setItem(step,JSON.stringify(option)); 
     opt = option;
     dispatch(addOptionSuccess(opt));
    }
