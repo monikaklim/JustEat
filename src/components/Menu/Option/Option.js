@@ -5,24 +5,18 @@ import { NavLink } from 'react-router-dom';
 
  const option = (props) => {
 
-let opt = "";
+
   let cssClass = "Option";
 
 if(localStorage.getItem(props.step) )
    {  
-    console.log(opt);
     if(JSON.parse(localStorage.getItem(props.step)).Id === props.id)
     cssClass = "OptionSelected"
 }
 
 
 
-
-
-
     return(
-
-
 
     <div className= {cssClass} onClick = { props.clickOpt}   >
         <div>

@@ -82,7 +82,7 @@ for(let key in options){
 
 
 
-sauces = sauces.map(s => <Option key = {s.Id} name = {s.Name} step = "5" clickOpt = {() => this.props.onAddOption(5,s)} />);
+sauces = sauces.map(s => <Option key = {s.Id} id = {s.Id} name = {s.Name} step = "5" clickOpt = {() => this.props.onAddOption(5,s)} />);
 
 for(let key in idProdsMenu){
 
