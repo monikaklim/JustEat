@@ -33,7 +33,7 @@ render(){
 return(
 
 <div className = "Cart">
-
+<h4>Totale ordine  {localStorage.getItem("price") ? Number(localStorage.getItem("price")).toFixed(2): "0.00" } €</h4>
 {this.componentDidMount()  }
 
 

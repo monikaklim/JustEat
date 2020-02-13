@@ -79,28 +79,27 @@ const cancelOrder = (state) =>{
 
 
 const removeOrder  = (state,action) =>{
-let keyOrder = action.order.name + " " + action.order.syn;
+let keyOrder = action.orderName + " " + action.orderSyn;
 localStorage.removeItem(keyOrder);
 
-let idOrder = state.options.findIndex(i=>i.Id  === action.order.Id);
+let idOrder = state.options.findIndex(i=>i.Id  === action.orderId);
 let arrayOrd = [...state.orders];
 
 arrayOrd.splice(idOrder, 1);
 
+let newPrice = 0;
+if(state.totalPrice>action.price){
+newPrice = state.totalPrice - action.price;
+localStorage.setItem("price",newPrice.toFixed(2));}
 
-console.log()
+
     return updateObject( state,
         {
-         
+         orders:arrayOrd,
+         totalPrice:newPrice
         });
 
 }
-
-
-
-
-
-
 
 
 

@@ -33,7 +33,7 @@ render(){
 
 </div>
 
-<p className = "Price">Totale: {localStorage.getItem("price")} € </p>
+<p className = "Price">Totale: {Number(localStorage.getItem("price")).toFixed(2)} € </p>
 
 <div className="LinkContainer">
 <NavLink className = "LinkOrder" to = "/" > Aggiungi più prodotti </NavLink> 

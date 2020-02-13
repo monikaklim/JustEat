@@ -38,7 +38,6 @@ export const addOption = (step,option) =>{
 
 
 
-
 export const addProduct = (product, notes) =>{
 
     return{
@@ -56,10 +55,13 @@ export const cancelOrder = () =>{
   };
 
 
-  export const removeOrder = (order) =>{
+  export const removeOrder = (orderId,orderName,orderSyn,price) =>{
     return{
         type: actionTypes.REMOVE_ORDER,
-        order:order
+        orderId:orderId,
+        orderName:orderName,
+        orderSyn:orderSyn,
+        price:price
     };
 }
 

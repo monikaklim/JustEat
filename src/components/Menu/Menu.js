@@ -22,7 +22,7 @@ render(){
 </div>
 
 <div className = "CartContainer">
-    <h4>Totale ordine  {localStorage.getItem("price") ? localStorage.getItem("price"): "0.00" } €</h4>
+
 <Route path = "/cart" component = {Cart} />
 </div>
 

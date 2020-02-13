@@ -11,3 +11,13 @@
     background-color: white;
     font-family: sans-serif;
 }
+
+
+.RemoveOrderButton{
+    float:right;
+    margin-top:0px;
+    background-color: transparent;
+    border:none;
+    outline:none;
+    cursor:pointer;
+}

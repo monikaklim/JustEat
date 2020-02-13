@@ -18,7 +18,7 @@ return(
         {props.children}
 
      
-       <NavLink to ="/cart" ><button className="ConfirmButton"  onClick = {props.clicked} disabled = {props.disabled}>  <i class="material-icons">add_shopping_cart</i>  </button>
+       <NavLink to ="/cart"  ><button className="ConfirmButton"  onClick = {props.clicked } disabled = {props.disabled}>  <i class="material-icons">add_shopping_cart</i>  </button>
        </NavLink>
         </div>    
     </div> 

@@ -20,6 +20,11 @@ class Product extends Component{
             this.setState({show : false});
             this.props.onCancelOrder();
             }
+
+    addedToCart = () =>{
+        this.props.onAddProduct(this.props.obj, this.state.notes)
+                this.setState({show : false});
+                }
         
   
     changeHandler = (event) =>{
@@ -56,7 +61,7 @@ render(){
     return(
      
 <div>
-<Route path = "/options" component = {Modal} />
+
     <div >
   <Link to = {this.props.opts.length > 0 ? "/modal" : "/cart"} className = "ProductLink" > <ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :  () => this.props.onAddProduct(this.props.obj, this.state.notes)  }> 
     <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
@@ -73,7 +78,7 @@ render(){
 
 
 
-<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = { () => this.props.onAddProduct(this.props.obj, this.state.notes) } disabled = { (stepMax  === this.props.options.length)? false : true }> 
+<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = { this.addedToCart } disabled = { (stepMax  === this.props.options.length)? false : true }> 
 <div>
 <h2>Opzioni</h2>
 {op2.length > 0 ? 
@@ -110,7 +115,7 @@ render(){
 
 </div>
 </Modal>  : null}
-
+<Route path = "/options" component = {Modal} />
 </div>
   );
 

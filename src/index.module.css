@@ -6,6 +6,7 @@ body {
   text-align: center;
   width:100%;
   cursor:default;
+  height:auto;
 }
 ::selection { text-shadow: 2px 2px #ccc }
 
