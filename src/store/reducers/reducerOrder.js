@@ -99,7 +99,7 @@ const cancelOrder = (state) =>{
 const removeOrder  = (state,action) =>{
 let quantity = action.order.qnt;
 let arrayOrd  = [...state.orders];
-let keyOrder = action.order.name + " " + action.order.syn;
+let keyOrder = action.order.name + " " + action.order.syn+JSON.stringify(action.order.options);
 let newPrice = 0;
 
 if(action.order.qnt > 1){

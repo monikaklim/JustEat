@@ -8,7 +8,7 @@ const order = (props) => (
 
  
    <ul className = "Order" > 
- <Link to = "/cart"><button className="RemoveOrderButton"  onClick= { () => props.onRemoveOrder(props.obj) }  > <i className="material-icons">close</i></button> </Link> 
+ <Link to =  "/cart" ><button className="RemoveOrderButton"  onClick= { () => props.onRemoveOrder(props.obj) }  > <i className="material-icons">close</i></button> </Link> 
 
  <b>  x {props.qnt} {props.name}   {props.syn} </b> 
 
