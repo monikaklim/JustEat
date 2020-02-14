@@ -1,23 +1,31 @@
 .CategoriesContainer{
 margin-top:2px;
 float:left;
-width:40%;
+width:50%;
 margin:auto;
 margin-left:20px;
 margin-bottom:10px;
+padding-right:10px;
+border-right: 1px solid #cacaca;
 }
 
 .CartContainer{
 height:100%;
 float: right;
 width:40%;
-border-left: 1px solid #cacaca;
 right:20px;
 margin-bottom:10px;
-position:fixed;
+display:inline-table;
+}
 
+
+.OrdersContainer{
+
+  overflow-y:auto;
 
 }
+
+
 
 .LinkOrder{
        

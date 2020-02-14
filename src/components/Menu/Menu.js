@@ -25,7 +25,6 @@ return(
 <h4>Totale ordine  {Number(localStorage.getItem("price")).toFixed(2) } €</h4>
 <p>Totale scontato del 25%: {(Number(localStorage.getItem("price")).toFixed(2) * 0.75).toFixed(2)} €</p>
 
-<Route path = "/cart" component = {Cart} />
 {   localStorage.getItem("price") > 0  ? 
 
 <div>
@@ -43,6 +42,11 @@ return(
 
 </div>
 }
+<br/>
+<br/>
+<div className="OrdersContainer">
+<Route path = "/cart" component = {Cart} />
+</div>
 </div>
 
 
