@@ -1,28 +1,26 @@
 .Navbar {
- 
+background-color: #266abd;;
 list-style: none;
 display: inline-block ;
-top:0;
 width:100%;
 box-sizing: border-box;
-height:16px;
-margin-top:4px;
-margin-right:2px;
+height:40px;
+margin-top:0px;
+box-shadow: 0 0 5px 0 #cacaca
 }
-
 
 
 .Link{
 outline:none;
 float:right;
-margin-right:8px;
-margin-left:1px;
 color: white;
 background-color: #266abd;
 cursor: pointer;
 text-decoration: none;
 padding:10px;
-border-radius: 4px;
+border-radius: 1px;
+margin-top:2px;
+width:130px;
 }
 
 .ActiveLink{
@@ -33,3 +31,5 @@ background-color: #14427d;
 .Link:hover{
     background-color: #14509c;  
 }
+
+

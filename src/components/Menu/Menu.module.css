@@ -8,13 +8,49 @@ margin-bottom:10px;
 }
 
 .CartContainer{
-height:75%;
+height:100%;
 float: right;
 width:40%;
-border-radius: 5px;
-border: 1px solid #cacaca;
+border-left: 1px solid #cacaca;
 right:20px;
 margin-bottom:10px;
 position:fixed;
 
+
 }
+
+.LinkOrder{
+       
+    text-align:center;
+    text-decoration: none;
+    color: #d50525;
+    background-color: white;
+    border: 1px solid #d50525;
+    cursor: pointer;
+    padding:10px;
+    border-radius: 6px;
+    margin: 10px 10px 10px 10px;
+    vertical-align: middle;
+  
+    }
+
+    .LinkContainer{
+        display: block; 
+        margin-top:10px;
+        margin:auto;
+
+      }
+
+      .LinkEmptyCart{
+
+        text-align:center;
+        text-decoration: none;
+        color: #d50525;
+        background-color: white;
+        border: 1px solid #d50525;
+        cursor: pointer;
+        padding:10px;
+        border-radius: 6px;
+        margin:auto;
+        }
+        

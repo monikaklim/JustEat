@@ -4,6 +4,10 @@ width:100%;
 margin:auto;
 display:block;
 float:right;
-overflow:auto;
+overflow-y:auto;
+overflow-x:hidden;
 }
 
+
+
+   

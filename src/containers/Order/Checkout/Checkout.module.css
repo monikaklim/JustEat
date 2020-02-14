@@ -1,51 +1,57 @@
 
 .Chekout{
 width:100%;
-height:auto;
+height:80%;
 }
 
 .Orders{
   width:60%;
   float:left;
-  height: 50%;
+  height: 100%;
   margin:auto;
-  overflow-y: auto;  
+   
   display:block;
 }
 
-.LinkEmptyCart{
-text-align:center;
-text-decoration: none;
-color: #521751;
-background-color: white;
-border: 1px solid #521751;
-cursor: pointer;
-padding:10px;
-border-radius: 6px;
-margin:auto;
-}
-
 .LinkOrder{
-   
-    text-align:center;
-    text-decoration: none;
-    color: #521751;
-    background-color: white;
-    border: 1px solid #521751;
-    cursor: pointer;
-    padding:10px;
-    border-radius: 6px;
-    margin: 10px 10px 10px 10px;
-    vertical-align: middle;
-  
+       
+  text-align:center;
+  text-decoration: none;
+  color: #d50525;
+  background-color: white;
+  border: 1px solid #d50525;
+  cursor: pointer;
+  padding:10px;
+  border-radius: 6px;
+  margin: 10px 10px 10px 10px;
+  vertical-align: middle;
+  margin-bottom:20px;
+
+  }
+
+  .LinkContainer{
+      display: block; 
+      margin-top:10px;
+      margin:auto;
 
     }
-    .LinkContainer{
-      display: block; 
-      margin-top:20px;
-      float:right;
-  
-    }
+
+    .LinkEmptyCart{
+
+      text-align:center;
+      text-decoration: none;
+      color: #d50525;
+      background-color: white;
+      border: 1px solid #d50525;
+      cursor: pointer;
+      padding:10px;
+      border-radius: 6px;
+      margin:auto;
+      margin-bottom:20px;
+      }
+      
+
+
     .Price{
       font-size:20px;
       font-weight: bold;
@@ -57,11 +63,7 @@ margin:auto;
       width: 50%;
      
   }
-  .LinkContainer{
-  margin:auto;
- width:50%;
- margin-bottom:20px;
-  }
+ 
   
 .Price{
   float:left;

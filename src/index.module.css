@@ -6,7 +6,7 @@ body {
   text-align: center;
   width:100%;
   cursor:default;
-  height:auto;
+  height:100%;
 }
 ::selection { background-color:transparent; }
 
