@@ -1,4 +1,5 @@
 .Navbar {
+ 
 list-style: none;
 display: inline-block ;
 top:0;
@@ -18,7 +19,6 @@ margin-right:8px;
 margin-left:1px;
 color: white;
 background-color: #266abd;
-border: 1px solid #266abd;
 cursor: pointer;
 text-decoration: none;
 padding:10px;
@@ -31,6 +31,5 @@ background-color: #14427d;
 }
 
 .Link:hover{
-
     background-color: #14509c;  
 }
