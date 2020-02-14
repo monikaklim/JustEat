@@ -1,8 +1,9 @@
 .Cart{
-height:80%;
+height:70%;
 width:100%;
 margin:auto;
 display:block;
 float:right;
-overflow-y:auto;
+overflow:auto;
 }
+

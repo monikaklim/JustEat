@@ -20,7 +20,7 @@ const order = (props) => (
   </div>
   : null    }  
  <p> {Number(props.totPrice).toFixed(2)} €  </p>
- 
+ <p> Prezzo scontato del 25%: {(Number(props.totPrice).toFixed(2) * 0.75).toFixed(2)} €  </p>
  {props.notes ? <p>Note:  {props.notes}  </p> : null}
    
 </ul>

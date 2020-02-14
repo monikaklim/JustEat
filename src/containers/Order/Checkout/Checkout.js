@@ -26,8 +26,11 @@ const checkout = () =>{
 <Cart/>
 
 </div>
+<div className = "Price">
+<h4>Totale ordine  {Number(localStorage.getItem("price")).toFixed(2) } €</h4>
+<p>Totale scontato del 25%: {(Number(localStorage.getItem("price")).toFixed(2) * 0.75).toFixed(2)} €</p>
+</div>
 
-<p className = "Price">Totale: {Number(localStorage.getItem("price")).toFixed(2)} € </p>
 
 <div className="LinkContainer">
 <NavLink className = "LinkOrder" to = "/" > Aggiungi più prodotti </NavLink> 
