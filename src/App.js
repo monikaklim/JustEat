@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Modal from './components/UI/Modal/Modal';
 import {Route, BrowserRouter, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';

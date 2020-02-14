@@ -35,13 +35,14 @@ const addOptionFail = ( state ) => {
 
 
 const addProduct = ( state, action ) => {
-    let keyOrder = action.product.Name+ " " +  action.product.Syn;
+    let keyOrder = action.product.Name+ " " +  action.product.Syn + JSON.stringify(state.options);
     let quantity;
     let price;
     let totalPrice;
     let arrayOrd = [...state.orders];
 
-    if(localStorage.getItem(keyOrder)){
+
+    if( localStorage.getItem(keyOrder) ){
          quantity = state.quantity+1;
          price =  action.price * quantity;
          totalPrice = state.totalPrice + action.price;
