@@ -23,13 +23,7 @@ border: 1px solid #eaeaea;
 width:100%;
 }
 
-.Option:focus{
- 
-    border: 1px solid #521751;
-    box-shadow: 0 2px 2px #ccc;
-    background-color: #DECEF7;
 
-}
 
 .OptionSelected{
     text-decoration:none;
@@ -45,5 +39,5 @@ width:100%;
     padding:8px;
     border: 1px solid #eee;
     color:white;
-    background-color: #521751;
+    background-color: #d50525;
 }
