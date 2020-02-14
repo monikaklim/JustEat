@@ -19,7 +19,8 @@
 }
 
 hr{
-border: 1px dashed #521751;
+border: 1px solid #eaeaea;
+width:100%;
 }
 
 .Option:focus{
