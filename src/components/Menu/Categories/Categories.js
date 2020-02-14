@@ -15,7 +15,6 @@ class Categories extends Component{
     }
 
 
-    
 
 render(){
 let categ = [];

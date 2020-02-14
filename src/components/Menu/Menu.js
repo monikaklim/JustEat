@@ -6,19 +6,17 @@ import Cart from '../../containers/Order/Cart/Cart'
 import {Route} from 'react-router-dom';
 
 
-class Menu extends Component{
+const menu = (props) =>{
 
 
-render(){
-
-    return(
+return(
 <div>     
 <Navbar/>
 
 <h1>Il Panino di Zio Frank </h1>
 
 <div className="CategoriesContainer">
-<Categories purchase = {this.purchaseContinuedHandler} />
+<Categories  />
 </div>
 
 <div className = "CartContainer">
@@ -34,8 +32,8 @@ render(){
 
 </div>   
 
-    );
-}
+);
+
 };
 
-export default Menu;
+export default menu;
