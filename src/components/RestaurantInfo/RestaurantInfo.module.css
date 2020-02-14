@@ -1,0 +1,39 @@
+.RestaurantInfo{
+    text-align:center;
+    margin:auto;
+    display: inline-table;
+    border: 2px solid #eee;
+    border-radius:5px;
+    padding:10px;
+    box-shadow: 0 3px 3px #ccc;
+    background-color: white;
+}
+
+.OrariApertura{
+    text-align: center;
+    margin:auto;
+    margin-right:50px;
+ 
+}
+
+.LogoRestaurant{
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.LogoRestaurant img{
+    border-radius: 8px;
+    box-shadow: 0 2px 3px #521751;
+}
+
+.InfoPayment{
+margin-left:50px;
+text-align:center;
+}
+
+.InfoPayment table{
+    font-size:18px;
+    margin:auto;
+    margin-bottom:20px;
+}

@@ -20,18 +20,7 @@ margin-right:2px;
     font-weight: bold;
 }
 
-.CartLink{
-    border: 1px solid #521751;
-    float:right;
-    border-radius: 6px;
-    padding:5px;
-    cursor: default;
-    background-color: white;
-    color:black;
-    font-weight: bold;
-    width:50px;
-    cursor: pointer;
-}
+
 
 
 .Link{
