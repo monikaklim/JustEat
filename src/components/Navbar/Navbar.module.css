@@ -9,18 +9,6 @@ margin-top:4px;
 margin-right:2px;
 }
 
-.Info{
-    border: 1px solid #521751;
-    float:left;
-    border-radius: 6px;
-    padding:10px;
-    cursor: default;
-    background-color: white;
-    color:#521751;
-    font-weight: bold;
-}
-
-
 
 
 .Link{
@@ -28,17 +16,21 @@ outline:none;
 float:right;
 margin-right:8px;
 margin-left:1px;
-color: #521751;
-background-color: white;
-border: 1px solid #521751;
+color: white;
+background-color: #266abd;
+border: 1px solid #266abd;
 cursor: pointer;
 text-decoration: none;
 padding:10px;
-border-radius: 6px;
+border-radius: 4px;
 }
 
 .ActiveLink{
 color:white;
-background-color: #521751; 
-border: 1px solid white;
+background-color: #14427d; 
+}
+
+.Link:hover{
+
+    background-color: #14509c;  
 }
