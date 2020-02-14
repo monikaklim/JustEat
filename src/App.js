@@ -7,13 +7,13 @@ import asyncComponent from './hoc/asyncComponent';
 import './index.module.css';
 import thunk from 'redux-thunk';
 import reducerOrder from "./store/reducers/reducerOrder";
-
+import Menu from './components/Menu/Menu';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ;
 
- const asyncMenu = asyncComponent(() => {
-  return import('./components/Menu/Menu');
+ const asyncInfo = asyncComponent(() => {
+  return import('./components/RestaurantInfo/RestaurantInfo');
 });
 
 const asyncCheckout= asyncComponent(() => {
@@ -42,7 +42,8 @@ return(
         <div className="App">
 <Switch>
         <Route path="/checkout" exact  component={asyncCheckout} /> 
-          <Route path="/"  component={asyncMenu} /> 
+        <Route path="/info" exact  component={asyncInfo} /> 
+          <Route path="/"  component={Menu} /> 
           </Switch>
        
          

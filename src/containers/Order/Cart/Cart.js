@@ -24,9 +24,6 @@ return this.getOrdersHandler();
         return orders;
         }
         
-
-
-
 render(){
 
 
@@ -34,12 +31,7 @@ return(
 
 <div className = "Cart">
 
-
-
 {this.componentDidMount()  }
-
-
-
 
 </div>
 
