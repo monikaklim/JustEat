@@ -2,11 +2,13 @@
     text-align:center;
     margin:auto;
     display: inline-table;
-    border: 2px solid #eee;
     border-radius:5px;
     padding:10px;
-    box-shadow: 0 3px 3px #ccc;
+    box-shadow: 0 6px 6px #ccc;
     background-color: white;
+    width:50%;
+    height:50%;
+    margin-top:10px;
 }
 
 .OrariApertura{
@@ -36,4 +38,13 @@ text-align:center;
     font-size:18px;
     margin:auto;
     margin-bottom:20px;
+}
+
+
+@media (min-width: 500px) {
+    .RestaurantInfo {
+        width: 400px;
+        left: calc(50% - 200px);
+    margin-top:10px;
+    } 
 }
