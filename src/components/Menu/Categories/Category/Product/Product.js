@@ -119,7 +119,7 @@ render(){
 </div>
 </Modal>  : null}
 
-<Route path = "/:opt" component = {Modal} />
+<Route path = "/modal" component = {Modal} />
 </div>
   );
 
