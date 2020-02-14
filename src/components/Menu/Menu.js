@@ -14,7 +14,7 @@ return(
 <Navbar/>
 
 <h1>Il Panino di Zio Frank </h1>
-
+<br/>
 <div className="CategoriesContainer">
 <Categories  />
 </div>

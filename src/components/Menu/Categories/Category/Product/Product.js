@@ -67,7 +67,7 @@ render(){
 
     <div >
   <Link to = {this.props.opts.length > 0 ? "/modal" : "/cart"} className = "ProductLink" > <ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :  () => this.props.onAddProduct(this.props.obj, this.state.notes)  }> 
-    <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
+    <li> <b>{this.props.name}  <i style = {{color:'#f50028'}}>{this.props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{this.props.price} € </b> </li>
 </ul>

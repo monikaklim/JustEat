@@ -11,6 +11,7 @@
     vertical-align: middle;
     border-radius: 6px;
     cursor: pointer;
+    border: 2px solid #eaeaea;
 }
 
 .showButton{
