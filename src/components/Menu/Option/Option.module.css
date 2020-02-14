@@ -4,7 +4,7 @@
     text-align: center;
     list-style:none;
     border: 1px solid #eee;
-    box-shadow: 0 2px 2px #ccc;
+    box-shadow: 0 2px 2px #cacaca;
     background-color: white;
     margin-top: 2px;
     margin-bottom:2px;
@@ -14,8 +14,8 @@
     padding:8px;
 }
 .Option:hover{
-    background-color: #ccc;
-    box-shadow: 0 2px 3px #eee;
+    background-color: #eaeaea;
+    box-shadow: 0 2px 3px #cacaca;
 }
 
 hr{
