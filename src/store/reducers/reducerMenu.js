@@ -1,21 +1,24 @@
 import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../../utility/utility';
 
+
 const initialState = {
 products:[],
 categories:[],
 sauces:[],
-
+order: [],
 loading:false
-
 }
 
-//products
+
+
+
 const fetchDataStart = ( state ) => {
     return updateObject( state, { loading: true } );
 };
 
 const fetchDataSuccess = ( state, action ) => {
+   
     return updateObject( state, {
         products: action.products,
         categories: action.categories,
@@ -32,13 +35,13 @@ const fetchDataFail = ( state ) => {
 
 
 
-
-const reducer = (state = initialState, action) =>{
+const reducerMenu = (state = initialState, action) =>{
 
 switch(action.type){
     case actionTypes.FETCH_DATA_START: return fetchDataStart( state, action );
     case actionTypes.FETCH_DATA_SUCCESS: return fetchDataSuccess( state, action );
     case actionTypes.FETCH_DATA_FAIL: return fetchDataFail( state, action );
+
     default: return state;
 }
 
@@ -48,4 +51,4 @@ switch(action.type){
 
 
 
-export default reducer;
+export default reducerMenu;

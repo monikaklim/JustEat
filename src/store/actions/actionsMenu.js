@@ -20,7 +20,7 @@ export const fetchDataFail = (error) =>{
 
 export const fetchDataStart = () =>{
     return{
-        type: actionTypes.FETCH_DATA_START,
+        type: actionTypes.FETCH_DATA_START
 
     };
 };
@@ -56,3 +56,10 @@ return dispatch => {
 
 };
 };
+
+
+
+
+
+
+

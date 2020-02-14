@@ -1,17 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Option.module.css';
+import { NavLink } from 'react-router-dom';
 
-class Option extends Component{
 
-    render(){
-  
+ const option = (props) => {
+
+
+  let cssClass = "Option";
+
+if(localStorage.getItem(props.step) )
+   {  
+    if(JSON.parse(localStorage.getItem(props.step)).Id === props.id)
+    cssClass = "OptionSelected"
+}
+
+
+
     return(
-    <div className="Option">
-    <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i>  </b>
-   
+
+    <div className= {cssClass} onClick = { props.clickOpt}   >
+        <div>
+    <b>{props.name}  <i style = {{color:'red'}}>{props.syn} </i>  </b>
+
     </div>
-   
-    );
+    </div>
+ 
+);
     }
-};
-export default Option;
+
+
+
+
+    
+export default option;

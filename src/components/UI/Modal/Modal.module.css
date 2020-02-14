@@ -1,7 +1,7 @@
 
 .Modal {
     position: fixed;
-    z-index: 200;
+    z-index: 300;
     border: 1px solid #eee;
     box-shadow: 0 2px 2px #ccc;
     background-color: white;
@@ -17,10 +17,26 @@
     overflow-y: auto;
  
 }
-.Button {
-   bottom:10px;
+.ConfirmButton {
+bottom:10px;
+outline:none;
+margin-left:1px;
+color: white;
+background-color: #521751;
+border: 1px solid white;
+cursor: pointer;
+text-decoration: none;
+padding:10px;
+border-radius: 6px;
 }
 
+
+.ConfirmButton:disabled {
+   cursor:not-allowed;
+   background-color: #ccc;
+   border: 1px solid #521751;
+ }
+ 
 
 @media (min-width: 500px) {
     .Modal {
@@ -28,7 +44,7 @@
         left: calc(50% - 200px);
     
     }
-    .Button{
+    .ConfirmButton{
         width:40%
     }
 }

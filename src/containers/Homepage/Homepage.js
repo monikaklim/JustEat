@@ -29,8 +29,6 @@ this.setState({items:itArr, text:''});}
 
 render(){
 
-
-console.log(this.state);
 let array = [];
 array = (
 this.state.items.map((item,index) => {

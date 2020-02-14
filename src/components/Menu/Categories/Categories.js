@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Product from '../Products/Product/Product';
+import Product from './Category/Product/Product';
 import Category from './Category/Category';
 import {connect} from 'react-redux';
 import * as actions from '../../../store/actions/index';
@@ -9,10 +9,13 @@ import Option from '../Option/Option';
 
 class Categories extends Component{
 
+ 
     componentDidMount(){
         this.props.onFetchData();
     }
 
+
+    
 
 render(){
 let categ = [];
@@ -27,8 +30,6 @@ let sauces = this.props.sauces;
 let opProd = [];
 
 if(!this.props.loading){
-
-sauces = sauces.map(s => <Option key = {s.Id} name = {s.Name} />);
 
 
     prodsOfCat = categories.map(c => c.Items.map(i => i.Products.map(p => p.Id )));
@@ -81,6 +82,7 @@ for(let key in options){
 
 
 
+sauces = sauces.map(s => <Option key = {s.Id} id = {s.Id} name = {s.Name} step = "5" clickOpt = {() => this.props.onAddOption(5,s)} />);
 
 for(let key in idProdsMenu){
 
@@ -92,7 +94,7 @@ for(let key in idProdsMenu){
      opt = opProd.filter((p) => p.Id === products[key].Id);
      opt = opt.filter((op,index,self) => index === self.findIndex((o) => (op.opt.Name === o.opt.Name && op.opt.Id === o.opt.Id  ) ));
      
-    productsArr.push({prods : <Product key = {products[key].Id}  name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  sauces = { products[key].Syn === "Menù"  ? sauces : null} opts = {opt.map(o => <Option key = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} step = {o.step}/>)} /> , cat: key2  } 
+    productsArr.push({prods : <Product key = {products[key].Id} obj = {products[key]}   name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  sauces = { products[key].Syn === "Menù"  ? sauces : null} opts = {opt.map(o => <Option key = {o.opt.Id} id = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} step = {o.step} clickOpt= {() => this.props.onAddOption(o.step, o.opt)} />)} /> , cat: key2  } 
         );
 
 
@@ -110,7 +112,6 @@ for(let key in categories){
 }
 
 
-
     return(
         <div> 
          { this.props.loading ? <Spinner/> :  categ }
@@ -123,16 +124,18 @@ for(let key in categories){
 
     const mapStateToProps = state =>{
         return{
-            categories:state.categories,
-            products:state.products,
-            loading: state.loading,
-           sauces: state.sauces
+            categories:state.menu.categories,
+            products:state.menu.products,
+            loading: state.menu.loading,
+            sauces: state.menu.sauces,
+            options:state.order.options
         };
     };
 
     const mapDispatchToProps = dispatch => {
         return{
-        onFetchData: () => dispatch(actions.fetchData())
+        onFetchData: () => dispatch(actions.fetchData()),
+        onAddOption: (step,option) => dispatch(actions.addOption(step,option))
         };
     };
 
