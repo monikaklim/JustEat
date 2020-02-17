@@ -15,8 +15,8 @@ const order = (props) => (
 {props.options ? 
 <div>
 
-{props.options.map(o => <p key = {o.Id}>{o.Name} </p>)}
- { props.options.map(o => <p key = {o.Id}>{o.Syn}</p>) }
+{props.options.map(o => <p key = {o.Id}>{o.Name} {o.Syn} </p>)}
+
   </div>
   : null    }  
  <p> {Number(props.totPrice).toFixed(2)} €  </p>

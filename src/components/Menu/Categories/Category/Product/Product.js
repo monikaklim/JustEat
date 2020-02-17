@@ -23,7 +23,7 @@ class Product extends Component{
 
     addedToCart = () =>{
         this.props.onAddProduct(this.props.obj, this.state.notes)
-                this.setState({show : false});
+                this.setState({show : false, notes:''});
                 }
         
   
@@ -113,7 +113,7 @@ render(){
 
 <hr/>
 <p>Note</p>
-<textarea placeholder = "Intolleranze, allergie, ecc..." className = "Notes" onChange = {this.changeHandler}></textarea>
+<textarea  placeholder = "Intolleranze, allergie, ecc..." className = "Notes" onChange = {this.changeHandler}  autofocus ></textarea>
 
 </div>
 </Modal>  : null}

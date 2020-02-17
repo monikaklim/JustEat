@@ -8,7 +8,6 @@ import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
 
 const menu = () =>{
 
-
 return(
 <div>     
 <Navbar/>
