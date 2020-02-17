@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from '../Navbar/Navbar';
 import Categories from './Categories/Categories';
 import './Menu.module.css';
 import Cart from '../../containers/Order/Cart/Cart'
-import {Route, NavLink} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
 
-const menu = (props) =>{
+const menu = () =>{
 
 
 return(
@@ -28,8 +28,7 @@ return(
 {   localStorage.getItem("price") > 0  ? 
 
 <div>
-<NavLink className = "LinkOrder" to = "/" > Aggiungi più prodotti </NavLink> 
-<p> <b>oppure</b></p>
+
 <AnimatedLink className = "LinkOrder" path = "/">Invia ordine  </AnimatedLink>
 </div>
   : 

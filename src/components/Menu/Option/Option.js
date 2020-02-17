@@ -1,7 +1,5 @@
 import React from 'react';
 import './Option.module.css';
-import { NavLink } from 'react-router-dom';
-
 
  const option = (props) => {
 
@@ -14,15 +12,13 @@ if(localStorage.getItem(props.step) )
     cssClass = "OptionSelected"
 }
 
-
-
     return(
 
-    <div className= {cssClass} onClick = { props.clickOpt}   >
-        <div>
-    <b>{props.name}  <i style = {{color:'red'}}>{props.syn} </i>  </b>
+    <div className= {cssClass} onClick = { props.clickOpt}  >
+      
+    <span><b>{props.name}  <i style = {{color:'#f50028'}}>{props.syn} </i>  </b></span>
 
-    </div>
+   
     </div>
  
 );

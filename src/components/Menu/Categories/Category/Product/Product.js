@@ -36,8 +36,7 @@ class Product extends Component{
     
 render(){
 
-
-   
+ 
 
     let str = '';
     if(this.props.desc){
@@ -87,28 +86,28 @@ render(){
 {op2.length > 0 ? 
 <div>
 <hr/>
-<p> {op2}</p>
+<div> {op2}</div>
 </div>
 : null}   
 
 {op3.length > 0 ? 
 <div>
 <hr/>
-<p> {op3}</p>
+<div> {op3}</div>
 </div>
 : null} 
 
 {op4.length > 0 ? 
 <div>
 <hr/>
-<p> {op4}</p>
+<div> {op4}</div>
 
 </div>
 : null} 
 
 {this.props.sauces ?
 <div> <hr/>
-<p> {this.props.sauces}</p>
+<div> {this.props.sauces}</div>
 </div> : null}
 
 

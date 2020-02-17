@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import Order from '../Order';
 import './Cart.module.css';
-import styled, {keyframes} from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import {pulse} from 'react-animations';
-import AnimatedLink from '../../../components/UI/AnimatedLink/AnimatedLink';
 
 class Cart extends Component{
 
@@ -28,9 +24,7 @@ return this.getOrdersHandler();
         }
         
 render(){
-
-
-       
+     
 
 return(
 
