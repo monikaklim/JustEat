@@ -13,7 +13,6 @@
     width: 80%;
     height:auto;
     max-height:70%;
-    transition:all 0.3s ease-out;
     overflow-y: auto;
  
 }
@@ -22,7 +21,7 @@ bottom:10px;
 outline:none;
 margin-left:1px;
 color: white;
-background-color: #521751;
+background-color: #266abd;
 border: 1px solid white;
 cursor: pointer;
 text-decoration: none;
@@ -34,8 +33,12 @@ border-radius: 6px;
 .ConfirmButton:disabled {
    cursor:not-allowed;
    background-color: #ccc;
-   border: 1px solid #521751;
+   border: 1px solid #cacaca;
  }
+
+ textarea:focus {
+   border:1px solid #266abd ;
+  }
  
 
 @media (min-width: 500px) {

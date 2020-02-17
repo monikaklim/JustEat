@@ -23,7 +23,7 @@ class Product extends Component{
 
     addedToCart = () =>{
         this.props.onAddProduct(this.props.obj, this.state.notes)
-                this.setState({show : false});
+                this.setState({show : false, notes:''});
                 }
         
   
@@ -36,8 +36,7 @@ class Product extends Component{
     
 render(){
 
-
-   
+ 
 
     let str = '';
     if(this.props.desc){
@@ -67,7 +66,7 @@ render(){
 
     <div >
   <Link to = {this.props.opts.length > 0 ? "/modal" : "/cart"} className = "ProductLink" > <ul className="Product" onClick = {this.props.opts.length > 0 ?  this.showModal :  () => this.props.onAddProduct(this.props.obj, this.state.notes)  }> 
-    <li> <b>{this.props.name}  <i style = {{color:'red'}}>{this.props.syn} </i></b> </li>
+    <li> <b>{this.props.name}  <i style = {{color:'#f50028'}}>{this.props.syn} </i></b> </li>
     <li> {str}  </li>
     <li> <b>{this.props.price} € </b> </li>
 </ul>
@@ -87,34 +86,34 @@ render(){
 {op2.length > 0 ? 
 <div>
 <hr/>
-<p> {op2}</p>
+<div> {op2}</div>
 </div>
 : null}   
 
 {op3.length > 0 ? 
 <div>
 <hr/>
-<p> {op3}</p>
+<div> {op3}</div>
 </div>
 : null} 
 
 {op4.length > 0 ? 
 <div>
 <hr/>
-<p> {op4}</p>
+<div> {op4}</div>
 
 </div>
 : null} 
 
 {this.props.sauces ?
 <div> <hr/>
-<p> {this.props.sauces}</p>
+<div> {this.props.sauces}</div>
 </div> : null}
 
 
 <hr/>
 <p>Note</p>
-<textarea placeholder = "Intolleranze, allergie, ecc..." className = "Notes" onChange = {this.changeHandler}></textarea>
+<textarea  placeholder = "Intolleranze, allergie, ecc..." className = "Notes" onChange = {this.changeHandler}  autofocus ></textarea>
 
 </div>
 </Modal>  : null}

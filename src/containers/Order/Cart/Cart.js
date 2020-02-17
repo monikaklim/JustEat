@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Order from '../Order';
 import './Cart.module.css';
 
-
 class Cart extends Component{
 
 componentDidMount(){
@@ -18,20 +17,22 @@ return this.getOrdersHandler();
         let ord = JSON.parse(localStorage.getItem(keys[key]));
           
            if(keys[key] !== "price")
-           orders.push( <Order key = {ord.idOrder} id = {ord.idOrder} name = {ord.name} syn ={ord.syn} options = {ord.options} totPrice = {ord.totPrice} productPrice = {ord.productPrice} notes = {ord.notes} qnt = {ord.qnt}  obj  = {ord} />)
+           orders.push( <Order key = {key} id = {ord.idOrder} name = {ord.name} syn ={ord.syn} options = {ord.options} totPrice = {ord.totPrice} productPrice = {ord.productPrice} notes = {ord.notes} qnt = {ord.qnt}  obj  = {ord} />)
         }
         
         return orders;
         }
         
 render(){
-
+     
 
 return(
 
 <div className = "Cart">
 
-{this.componentDidMount()  }
+{this.componentDidMount() }
+
+
 
 </div>
 

@@ -16,8 +16,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ;
   return import('./components/RestaurantInfo/RestaurantInfo');
 });
 
-const asyncCheckout= asyncComponent(() => {
-  return import('./containers/Order/Checkout/Checkout');
+const asyncLogin= asyncComponent(() => {
+  return import('./containers/Order/Login/Login');
 });
 
 const rootReducer = combineReducers(
@@ -41,7 +41,7 @@ return(
       <BrowserRouter>
         <div className="App">
 <Switch>
-        <Route path="/checkout" exact  component={asyncCheckout} /> 
+        <Route path="/Login" exact  component={asyncLogin} /> 
         <Route path="/info" exact  component={asyncInfo} /> 
           <Route path="/"  component={Menu} /> 
           </Switch>

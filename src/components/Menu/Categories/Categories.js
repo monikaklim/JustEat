@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import Product from './Category/Product/Product';
 import Category from './Category/Category';
 import {connect} from 'react-redux';
@@ -7,35 +7,30 @@ import Spinner from '../../UI/Spinner/Spinner';
 import Option from '../Option/Option';
 
 
-class Categories extends Component{
+const categories = (props) =>{
 
- 
-    componentDidMount(){
-        this.props.onFetchData();
-    }
+  useEffect( () => {
+      props.onFetchData();
+    }, []);
 
 
-    
-
-render(){
 let categ = [];
 let options = [];
 let prodsOfCat = [];
 let idProdsOfCat = [];
 let idProdsMenu = [];
 let opt = [];
-const {products,categories} = this.props;
+const {products,categories} = props;
 let productsArr = [];
-let sauces = this.props.sauces;
+let sauces = props.sauces;
 let opProd = [];
 
-if(!this.props.loading){
+if(!props.loading){
 
 
     prodsOfCat = categories.map(c => c.Items.map(i => i.Products.map(p => p.Id )));
     idProdsOfCat = prodsOfCat.map(p => p.toString().split(',').map((p) => p  ) );
     idProdsMenu = products.map(p => p.Id).toString().split(',');
-
 
 
 
@@ -82,7 +77,7 @@ for(let key in options){
 
 
 
-sauces = sauces.map(s => <Option key = {s.Id} id = {s.Id} name = {s.Name} step = "5" clickOpt = {() => this.props.onAddOption(5,s)} />);
+sauces = sauces.map(s => <Option key = {s.Id} id = {s.Id} name = {s.Name} step = "5" clickOpt = {() => props.onAddOption(5,s)} />);
 
 for(let key in idProdsMenu){
 
@@ -94,7 +89,7 @@ for(let key in idProdsMenu){
      opt = opProd.filter((p) => p.Id === products[key].Id);
      opt = opt.filter((op,index,self) => index === self.findIndex((o) => (op.opt.Name === o.opt.Name && op.opt.Id === o.opt.Id  ) ));
      
-    productsArr.push({prods : <Product key = {products[key].Id} obj = {products[key]}   name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  sauces = { products[key].Syn === "Menù"  ? sauces : null} opts = {opt.map(o => <Option key = {o.opt.Id} id = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} step = {o.step} clickOpt= {() => this.props.onAddOption(o.step, o.opt)} />)} /> , cat: key2  } 
+    productsArr.push({prods : <Product key = {products[key].Id} obj = {products[key]}   name = {products[key].Name} desc = {products[key].Desc}  price = {products[key].Price} syn = {products[key].Syn}  sauces = { products[key].Syn === "Menù"  ? sauces : null} opts = {opt.map(o => <Option key = {o.opt.Id} id = {o.opt.Id} name = {o.opt.Name} syn ={o.opt.Syn} price ={o.opt.Price} step = {o.step} clickOpt= {() => props.onAddOption(o.step, o.opt)} />)} /> , cat: key2  } 
         );
 
 
@@ -114,13 +109,13 @@ for(let key in categories){
 
     return(
         <div> 
-         { this.props.loading ? <Spinner/> :  categ }
+         { props.loading ? <Spinner/> :  categ }
         </div>   
     );
 
 
     };
-}
+
 
     const mapStateToProps = state =>{
         return{
@@ -141,4 +136,4 @@ for(let key in categories){
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Categories);
+export default connect(mapStateToProps,mapDispatchToProps)(categories);

@@ -23,7 +23,6 @@ else{
     return updateObject( state,
             { options:  state.options.concat(action.option)
             });
-  
 }
 };
 
@@ -33,14 +32,13 @@ const addOptionFail = ( state ) => {
 };
 
 
-
 const addProduct = ( state, action ) => {
-    let keyOrder = action.product.Name+ " " +  action.product.Syn + JSON.stringify(state.options);
+    let keyOrder = action.product.Name+ " " +  action.product.Syn + JSON.stringify(state.options)+action.notes;
     let quantity;
     let price;
     let totalPrice;
     let arrayOrd = [...state.orders];
-
+  
 
     if( localStorage.getItem(keyOrder) ){
          quantity = state.quantity+1;
@@ -99,7 +97,7 @@ const cancelOrder = (state) =>{
 const removeOrder  = (state,action) =>{
 let quantity = action.order.qnt;
 let arrayOrd  = [...state.orders];
-let keyOrder = action.order.name + " " + action.order.syn+JSON.stringify(action.order.options);
+let keyOrder = action.order.name + " " + action.order.syn+JSON.stringify(action.order.options)+action.order.notes;
 let newPrice = 0;
 
 if(action.order.qnt > 1){
@@ -130,7 +128,8 @@ if(action.order.qnt > 1){
         {
          quantity:quantity,
          orders:arrayOrd,
-         totalPrice:newPrice
+         totalPrice:newPrice,
+         notes:''
         });
 
 }
