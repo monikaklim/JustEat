@@ -5,14 +5,18 @@ import './Menu.module.css';
 import Cart from '../../containers/Order/Cart/Cart'
 import {Route} from 'react-router-dom';
 import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
-
+import Burger from "./burger.jpg";
 const menu = () =>{
 
 return(
 <div>     
 <Navbar/>
 
-<h1>Il Panino di Zio Frank </h1>
+
+<div className = "Banner">
+<h1 className = "Title">Il Panino di Zio Frank </h1>
+</div>
+
 <br/>
 <div className="CategoriesContainer">
 <Categories  />
@@ -31,7 +35,6 @@ return(
 <AnimatedLink  path = "/cart"><button className = "LinkOrder">Ordina ora </button> </AnimatedLink>
 </div>
   : 
-
 <div>
  <button className = "LinkEmptyCart" disabled> Ordina ora </button> 
 <br/>
@@ -45,8 +48,6 @@ return(
 <Route path = "/cart" component = {Cart} />
 </div>
 </div>
-
-
 
 </div>   
 

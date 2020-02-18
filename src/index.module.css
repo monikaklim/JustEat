@@ -4,9 +4,7 @@ body {
   font-family: 'Ubuntu';
   background-color: #f5f5f5;
   text-align: center;
-  width:100%;
   cursor:default;
-  height:100%;
 }
 ::selection { background-color:transparent; }
 
