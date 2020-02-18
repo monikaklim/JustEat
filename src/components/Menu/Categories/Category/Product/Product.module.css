@@ -27,8 +27,17 @@ color:black;
 .Notes {
 text-decoration: none;
 width:80%;
-height: 70px;
+height: 50px;
 outline:none;
 margin: auto; 
+border:none;
 border: 1px solid #cacaca;
+border-radius: 3%;
+resize: none;
 }
+
+   textarea:focus {
+    border:2px solid #266abd ;
+   
+   }
+  

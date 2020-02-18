@@ -11,7 +11,7 @@ const animatedLink = (props) =>{
     
 return(
 <div>
-<AnimatedLink><NavLink className = "LinkOrder" to = {props.path} > {props.children} </NavLink> </AnimatedLink>
+<AnimatedLink><NavLink to = {props.path} > {props.children} </NavLink> </AnimatedLink>
 </div>
 )
 

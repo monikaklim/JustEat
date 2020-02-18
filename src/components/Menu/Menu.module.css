@@ -20,15 +20,11 @@ display:inline-table;
 
 
 .OrdersContainer{
-
   overflow-y:auto;
-
 }
 
 
-
-.LinkOrder{
-       
+.LinkOrder{   
     text-align:center;
     text-decoration: none;
     color: #d50525;
@@ -39,7 +35,9 @@ display:inline-table;
     border-radius: 6px;
     margin: 10px 10px 10px 10px;
     vertical-align: middle;
-  
+    width:120px;
+    height:40px;
+   
     }
 
     .LinkContainer{
@@ -48,17 +46,18 @@ display:inline-table;
         margin:auto;
 
       }
-
-      .LinkEmptyCart{
-
+      .LinkEmptyCart:disabled{
         text-align:center;
         text-decoration: none;
-        color: #d50525;
-        background-color: white;
-        border: 1px solid #d50525;
-        cursor: pointer;
+        color: white;
+        background-color: #ccc;
+        border: 1px solid #cacaca;
+        cursor: not-allowed;
         padding:10px;
         border-radius: 6px;
-        margin:auto;
+        margin: 10px 10px 10px 10px;
+        width:120px;
+        height:40px;
+  
         }
         

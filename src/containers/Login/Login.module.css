@@ -1,0 +1,39 @@
+
+.InputLogin{
+padding:10px;
+border:1px solid #266abd;
+border-radius: 4px;
+outline:none;
+margin: 20px  auto;
+display: block;
+box-sizing: border-box;
+width:20%;
+}
+
+.LoginButton{
+margin:5px auto;
+display:block;
+width:15%;
+  color: white;
+  background-color: #266abd;
+  cursor: pointer;
+  text-decoration: none;
+  outline:none;
+  padding:10px;
+  border-radius: 6px; 
+}
+
+.LoginButton:hover {
+  background-color: #14509c;
+}
+
+.RegistrationLink{
+  margin:10px auto;
+  color:#266abd;
+  text-decoration: none;
+}
+
+.RegistrationLink:hover {
+  color:  #14509c;
+  font-weight: bold;
+}

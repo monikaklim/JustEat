@@ -21,9 +21,10 @@ Torino, 10138  </p>
 
 
 
+<p>Orari di apertura</p>
+
 <table className = "OrariApertura">
-<th></th>
-<th>Orari di apertura</th>
+<tbody>
 <tr>
     <td> Lunedì </td>
     <td>12:00 - 23:30 </td>
@@ -58,8 +59,9 @@ Torino, 10138  </p>
     <td> Domenica</td>
     <td>12:00 - 23:30 </td>
 </tr>
-
+</tbody>
 </table>
+
 <hr/>
 
 <div className = "InfoPayment">
@@ -67,6 +69,7 @@ Torino, 10138  </p>
 Minimo € 13 per la consegna </p>
 
 <table>
+<tbody>
 <tr>
     <td> <i className="fa fa-money"></i></td>
     <td>Contanti</td>
@@ -81,7 +84,7 @@ Minimo € 13 per la consegna </p>
     <td> <i className="fa fa-paypal"></i></td>
     <td>Paypal</td>
 </tr>
-
+</tbody>
 </table>
 
 

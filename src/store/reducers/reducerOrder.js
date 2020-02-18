@@ -103,6 +103,8 @@ let newPrice = 0;
 if(action.order.qnt > 1){
     quantity =  action.order.qnt - 1;
     newPrice = state.totalPrice - action.order.productPrice;
+    if(newPrice < 0)
+        newPrice = 0;
     localStorage.setItem("price",newPrice);
     let updatedOrder = {...action.order, qnt:quantity, totPrice: (action.order.totPrice - action.order.productPrice)}
     localStorage.setItem(keyOrder,JSON.stringify(updatedOrder));
@@ -117,11 +119,14 @@ if(action.order.qnt > 1){
 
     newPrice = state.totalPrice - action.order.productPrice;
     localStorage.removeItem(keyOrder);
+    if(newPrice <0)
+        newPrice = 0;
     localStorage.setItem("price",newPrice);
     let idOrder = state.orders.findIndex(i=>i.Id  === action.order.idOrder);
     arrayOrd.splice(idOrder, 1);
 
 }
+
 
 
     return updateObject( state,

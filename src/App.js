@@ -17,7 +17,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ;
 });
 
 const asyncLogin= asyncComponent(() => {
-  return import('./containers/Order/Login/Login');
+  return import('./containers/Login/Login');
 });
 
 const rootReducer = combineReducers(

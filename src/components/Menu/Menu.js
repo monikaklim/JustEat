@@ -24,19 +24,18 @@ return(
 <h4>Totale ordine  {Number(localStorage.getItem("price")).toFixed(2) } €</h4>
 <p>Totale scontato del 25%: {(Number(localStorage.getItem("price")).toFixed(2) * 0.75).toFixed(2)} €</p>
 
-{   localStorage.getItem("price") > 0  ? 
+{ localStorage.getItem("price") &&  localStorage.getItem("price") > 0  ? 
 
 <div>
 
-<AnimatedLink className = "LinkOrder" path = "/">Invia ordine  </AnimatedLink>
+<AnimatedLink  path = "/cart"><button className = "LinkOrder">Ordina ora </button> </AnimatedLink>
 </div>
   : 
 
 <div>
-<p><b>Il carrello è vuoto. </b></p>
+ <button className = "LinkEmptyCart" disabled> Ordina ora </button> 
 <br/>
-
-<AnimatedLink className = "LinkEmptyCart" path = "/">Ordina ora  </AnimatedLink>
+<p><b>Il carrello è vuoto. </b></p>
 
 </div>
 }
