@@ -4,9 +4,11 @@ list-style: none;
 display: inline-block ;
 width:100%;
 box-sizing: border-box;
-height:40px;
+height:36px;
 margin-top:0px;
-box-shadow: 0 0 5px 0 #cacaca
+box-shadow: 0 0 5px 0 #cacaca;
+height:40px;
+padding:0;
 }
 
 
@@ -19,8 +21,11 @@ cursor: pointer;
 text-decoration: none;
 padding:10px;
 border-radius: 1px;
-margin-top:2px;
-width:130px;
+margin-top:0px;
+width:25%;
+font-size:90%;
+height:20px;
+margin-bottom:0px;
 }
 
 .ActiveLink{

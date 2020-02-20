@@ -8,9 +8,9 @@ const navbar = () =>{
 return(
 <ul className = "Navbar">
    
-   <li> <NavLink  className= "Link" to= "/login" exact activeClassName = "ActiveLink"> Login </NavLink> </li>
-    <li >  <NavLink className = "Link" to = "/info" exact  activeClassName ="ActiveLink">Info</NavLink></li>
-    <li >  <NavLink className = "Link" to = "/cart" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
+    <li>  <NavLink to= "/" className = "Link">  Accedi con Google </NavLink></li>
+    <li>  <NavLink className = "Link" to = "/info" exact  activeClassName ="ActiveLink">Info</NavLink></li>
+    <li>  <NavLink className = "Link" to = "/" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
 </ul>
 
 

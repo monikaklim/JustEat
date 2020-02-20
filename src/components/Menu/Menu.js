@@ -5,7 +5,7 @@ import './Menu.module.css';
 import Cart from '../../containers/Order/Cart/Cart'
 import {Route} from 'react-router-dom';
 import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
-import Burger from "./burger.jpg";
+
 const menu = () =>{
 
 return(
