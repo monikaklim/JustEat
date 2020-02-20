@@ -1,5 +1,6 @@
 .CategoriesContainer{
 margin-top:2px;
+height:100%;
 float:left;
 width:50%;
 margin:auto;
@@ -20,15 +21,11 @@ display:inline-table;
 
 
 .OrdersContainer{
-
   overflow-y:auto;
-
 }
 
 
-
-.LinkOrder{
-       
+.LinkOrder{   
     text-align:center;
     text-decoration: none;
     color: #d50525;
@@ -39,26 +36,68 @@ display:inline-table;
     border-radius: 6px;
     margin: 10px 10px 10px 10px;
     vertical-align: middle;
-  
+    width:120px;
+    height:40px;
+    outline:none;
     }
 
     .LinkContainer{
         display: block; 
         margin-top:10px;
         margin:auto;
-
+   
       }
 
-      .LinkEmptyCart{
-
+      .LinkEmptyCart:disabled{
         text-align:center;
         text-decoration: none;
-        color: #d50525;
-        background-color: white;
-        border: 1px solid #d50525;
-        cursor: pointer;
+        color: white;
+        background-color: #ccc;
+        border: 1px solid #cacaca;
+        cursor: not-allowed;
         padding:10px;
         border-radius: 6px;
-        margin:auto;
+        margin: 10px 10px 10px 10px;
+        width:120px;
+        height:40px;
+        outline:none;
         }
         
+.Banner{
+  height:25%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("./burger.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  padding:30px;
+  background-position: center;
+}
+
+
+
+.Title{
+  color:black;
+  background-color: white;
+  mix-blend-mode: screen;
+  width:30%;
+  margin:auto;
+  padding:5px;
+  top: 50%;
+  left: 50%;
+
+}
+
+       button:not(:disabled) {
+          animation: enable 0.3s linear;
+      }
+      
+      @keyframes enable {
+          0% {
+              transform: scale(1);
+          }
+          60% {
+              transform: scale(1.1);
+          }
+          100% {
+              transform: scale(1);
+          }
+        }

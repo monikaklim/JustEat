@@ -56,16 +56,13 @@ for(let key in options){
 
              for(let key4 in options[key].items[key2].product[key3]){
                  idPr = options[key].items[key2].product[key3].id;
-               
                 for(let key5 in options[key].items[key2].product[key3].parts){
         
                    prodWithOpt = products.find(p => p.Id === idPr);
                     for(let key6 in options[key].items[key2].product[key3].parts[key5]){
                       
-                        idOp = options[key].items[key2].product[key3].parts[key5][key6].Id;   
-                        
+                        idOp = options[key].items[key2].product[key3].parts[key5][key6].Id;         
                         o = products.find(p => p.Id === idOp);
-                      
                         opProd.push({...prodWithOpt, opt: o, step:key5});
                     }
                 }

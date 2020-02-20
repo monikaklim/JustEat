@@ -113,7 +113,8 @@ render(){
 
 <hr/>
 <p>Note</p>
-<textarea  placeholder = "Intolleranze, allergie, ecc..." className = "Notes" onChange = {this.changeHandler}  autofocus ></textarea>
+<textarea  placeholder = "Intolleranze, allergie, ecc..." className = "Notes" onChange = {this.changeHandler}>
+</textarea>
 
 </div>
 </Modal>  : null}
