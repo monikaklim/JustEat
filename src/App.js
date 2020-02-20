@@ -7,6 +7,7 @@ import asyncComponent from './hoc/asyncComponent';
 import './index.module.css';
 import thunk from 'redux-thunk';
 import reducerOrder from "./store/reducers/reducerOrder";
+import reducerAuth from "./store/reducers/reducerAuth";
 import Menu from './components/Menu/Menu';
 
 
@@ -19,7 +20,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ;
 
 const rootReducer = combineReducers(
   {menu:reducerMenu,
-    order:reducerOrder
+    order:reducerOrder,
+    auth:reducerAuth
   }
 );
 
@@ -37,8 +39,8 @@ return(
     <Provider store = {store}>
       <BrowserRouter>
         <div className="App">
-<Switch>
-      
+
+        <Switch>
         <Route path="/info" exact  component={asyncInfo} /> 
           <Route path="/"  component={Menu} /> 
           </Switch>

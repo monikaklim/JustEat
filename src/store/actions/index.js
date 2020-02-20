@@ -8,3 +8,7 @@ export {
     cancelOrder,
     removeOrder
 }from './actionsOrder';
+
+export{
+    fetchUser
+}from './actionsAuth';

@@ -7,10 +7,11 @@ const navbar = () =>{
 
 return(
 <ul className = "Navbar">
-   
-    <li>  <NavLink to= "/" className = "Link">  Accedi con Google </NavLink></li>
+
+    <li>  <a href = "/auth/google" className = "Link" >  Accedi con Google </a></li>
     <li>  <NavLink className = "Link" to = "/info" exact  activeClassName ="ActiveLink">Info</NavLink></li>
     <li>  <NavLink className = "Link" to = "/" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
+
 </ul>
 
 

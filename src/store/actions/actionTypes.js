@@ -8,3 +8,8 @@ export const ADD_OPTION_FAIL = 'ADD_OPTION_FAIL';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const CANCEL_ORDER = 'CANCEL_ORDER';
 export const REMOVE_ORDER = 'REMOVE_ORDER';
+
+
+export const FETCH_USER_START= 'FETCH_USER_START';
+export const FETCH_USER_SUCCESS= ' FETCH_USER_SUCCESS';
+export const FETCH_USER_FAIL = 'FETCH_USER_FAIL';
