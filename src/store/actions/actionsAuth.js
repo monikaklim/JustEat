@@ -5,7 +5,7 @@ import axios from 'axios'
 export const fetchUserSuccess = (user) =>{
     return{
         type: actionTypes.FETCH_USER_SUCCESS,
-      user:user
+     user:user
     };
 };
 
@@ -26,10 +26,7 @@ export const fetchUserStart = () =>{
 export const fetchUser = () =>{
 return dispatch => {
     dispatch(fetchUserStart());
-    axios.get('http://localhost:5000/api/current_user').then(response => {      
-    dispatch(fetchUserSuccess(response.data));
-    console.log(response)
-     })
+    axios.get('/api/current_user').then( res => dispatch(fetchUserSuccess(res.data)))   
 .catch(err => dispatch(fetchUserFail(err)));    
 
 };
