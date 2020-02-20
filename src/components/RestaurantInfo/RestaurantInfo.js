@@ -1,11 +1,10 @@
 import React from  'react';
 import  './RestaurantInfo.module.css';
-import Navbar from '../Navbar/Navbar';
 import Logo from "./logo.jpg";
 const restaurantInfo = () =>(
 
 <div>
-<Navbar/>
+
 <div className = "RestaurantInfo">
 
 

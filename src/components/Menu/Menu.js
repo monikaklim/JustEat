@@ -1,16 +1,18 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
+import {connect} from 'react-redux';
 import Categories from './Categories/Categories';
 import './Menu.module.css';
 import Cart from '../../containers/Order/Cart/Cart'
 import {Route} from 'react-router-dom';
 import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
+import { PromiseProvider } from 'mongoose';
 
-const menu = () =>{
+const menu = (props) =>{
 
+  const {user} = props;
 return(
 <div>     
-<Navbar/>
+
 
 
 <div className = "Banner">
@@ -32,11 +34,25 @@ return(
 
 <div>
 
-<AnimatedLink  path = "/cart"><button className = "LinkOrder">Ordina ora </button> </AnimatedLink>
+
+{user ? <AnimatedLink  path =  "/user"><button className = "LinkOrder">Ordina ora </button> </AnimatedLink> : 
+
+<a href = "/auth/google" className = "LinkOrder" >  Accedi per ordinare </a>
+
+}
+
 </div>
   : 
 <div>
- <button className = "LinkEmptyCart" disabled> Ordina ora </button> 
+
+
+ {user ?  <button className = "LinkEmptyCart" disabled> Ordina ora </button>  : 
+
+<button className = "LinkEmptyCart" disabled> Accedi per ordinare </button> 
+
+}
+
+
 <br/>
 <p><b>Il carrello è vuoto. </b></p>
 
@@ -55,4 +71,12 @@ return(
 
 };
 
-export default menu;
+
+const mapStateToProps = state =>{
+  return{
+ user: state.auth.user
+  };
+};
+
+
+export default connect(mapStateToProps)(menu);

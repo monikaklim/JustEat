@@ -11,7 +11,7 @@ const categories = (props) =>{
 
   useEffect( () => {
       props.onFetchData();
-      props.onFetchUser();
+     
     }, []);
 
 
@@ -121,8 +121,7 @@ for(let key in categories){
             products:state.menu.products,
             loading: state.menu.loading,
             sauces: state.menu.sauces,
-            options:state.order.options,
-            user:state.auth.user
+            options:state.order.options
         };
     };
 
@@ -130,7 +129,7 @@ for(let key in categories){
         return{
         onFetchData: () => dispatch(actions.fetchData()),
         onAddOption: (step,option) => dispatch(actions.addOption(step,option)),
-        onFetchUser: () => dispatch(actions.fetchUser())
+     
         };
     };
 
