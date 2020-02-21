@@ -11,6 +11,7 @@ const categories = (props) =>{
 
   useEffect( () => {
       props.onFetchData();
+     
     }, []);
 
 
@@ -34,7 +35,7 @@ if(!props.loading){
 
 
 
-options = categories.map ((cat)=>{ return {name: 
+    options = categories.map ((cat)=>{ return {name: 
     cat.Name, 
     items: cat.Items.map((item)=>{return {product: 
                                           item.Products.map((product)=> { 
@@ -127,7 +128,8 @@ for(let key in categories){
     const mapDispatchToProps = dispatch => {
         return{
         onFetchData: () => dispatch(actions.fetchData()),
-        onAddOption: (step,option) => dispatch(actions.addOption(step,option))
+        onAddOption: (step,option) => dispatch(actions.addOption(step,option)),
+     
         };
     };
 

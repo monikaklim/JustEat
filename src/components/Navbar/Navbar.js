@@ -1,19 +1,48 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import './Navbar.module.css';
+import {connect} from 'react-redux';
 
-const navbar = () =>{
+
+const navbar = (props) =>{
+
+const {user, loading} = props;
+
+
+let login = <li  className = "Link"><p>...</p></li>;
+
+if(!loading && !user){
+login = <li><a href = "/auth/google" className = "Link" >  Accedi con Google </a></li>;
+}
+
+if(!loading && user){
+    login = <li><a href = "/api/logout" className = "Link" onClick = {()=> localStorage.clear()  } >  Logout </a> </li>;
+    }
+    
 
 
 return(
 <ul className = "Navbar">
-   
-    <li>  <NavLink to= "/" className = "Link">  Accedi con Google </NavLink></li>
+
+
+    {login}
     <li>  <NavLink className = "Link" to = "/info" exact  activeClassName ="ActiveLink">Info</NavLink></li>
-    <li>  <NavLink className = "Link" to = "/" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
+    <li>  <NavLink className = "Link" to = "/cart" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
+
+    { user ?  <li className = "NameLoggedUser">   <img className = "ProfilePictureUser" src = {user.pic} alt = "profile picture "/> </li>    :null}
+
 </ul>
 
 
 );
 };
-export default navbar;
+
+const mapStateToProps = state =>{
+    return{
+   user: state.auth.user,
+   loading: state.auth.loading
+    };
+};
+
+
+export default connect(mapStateToProps)(navbar);
