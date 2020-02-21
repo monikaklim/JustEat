@@ -2,24 +2,33 @@ import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../../utility/utility';
 
 const initialState = {
-    user : null
+    user : null,
+    loading:false
 }
 
 
     const fetchUserStart = ( state ) => {
-        return state;
+        return updateObject( state, {
+           loading:true
+          } );
     };
     
     const fetchUserSuccess = ( state, action ) => {
-       
+        if(action.user ===""){
+            localStorage.clear()
+        }
+
+
         return updateObject( state, {
-          user:action.user
+          user:action.user,
+          loading: false
         } );
     };
     
-    const fetchUserFail = ( state,action ) => {
-        console.log(action.error)
-        return state;
+    const fetchUserFail = ( state ) => {
+        return updateObject( state, {
+            loading:false
+           } );
     };
     
     

@@ -1,19 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import Categories from './Categories/Categories';
 import './Menu.module.css';
 import Cart from '../../containers/Order/Cart/Cart'
 import {Route} from 'react-router-dom';
 import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
-import { PromiseProvider } from 'mongoose';
+
 
 const menu = (props) =>{
 
-  const {user} = props;
+  const {user,loading} = props;
+
+
+
+
 return(
 <div>     
-
-
 
 <div className = "Banner">
 <h1 className = "Title">Il Panino di Zio Frank </h1>
@@ -37,7 +39,7 @@ return(
 
 {user ? <AnimatedLink  path =  "/user"><button className = "LinkOrder">Ordina ora </button> </AnimatedLink> : 
 
-<a href = "/auth/google" className = "LinkOrder" >  Accedi per ordinare </a>
+<a href = "/auth/google"  ><button className = "LinkOrder">  Accedi per ordinare</button> </a>
 
 }
 
@@ -74,7 +76,8 @@ return(
 
 const mapStateToProps = state =>{
   return{
- user: state.auth.user
+ user: state.auth.user,
+ loading: state.auth.loading
   };
 };
 

@@ -36,7 +36,7 @@ display:inline-table;
     border-radius: 6px;
     margin: 10px 10px 10px 10px;
     vertical-align: middle;
-    width:120px;
+    width:150px;
     height:40px;
     outline:none;
     }
@@ -58,7 +58,7 @@ display:inline-table;
         padding:10px;
         border-radius: 6px;
         margin: 10px 10px 10px 10px;
-        width:120px;
+        width:auto;
         height:40px;
         outline:none;
         }

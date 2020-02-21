@@ -20,7 +20,7 @@ import * as actions from './store/actions/index';
 class App extends Component{
 
 componentDidMount(){
-  localStorage.clear();
+
   this.props.onFetchUser();
 }
 
@@ -43,13 +43,19 @@ return(
 }
 
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state =>{
   return{
-    onFetchUser: () => dispatch(actions.fetchUser())
-
+ user: state.auth.user
   };
 };
 
 
-export default connect(null, mapDispatchToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return{
+    onFetchUser: () => dispatch(actions.fetchUser())
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 

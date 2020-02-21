@@ -35,7 +35,7 @@ if(!props.loading){
 
 
 
-options = categories.map ((cat)=>{ return {name: 
+    options = categories.map ((cat)=>{ return {name: 
     cat.Name, 
     items: cat.Items.map((item)=>{return {product: 
                                           item.Products.map((product)=> { 
