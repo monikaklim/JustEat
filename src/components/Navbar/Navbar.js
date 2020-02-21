@@ -28,8 +28,7 @@ return(
     {login}
     <li>  <NavLink className = "Link" to = "/info" exact  activeClassName ="ActiveLink">Info</NavLink></li>
     <li>  <NavLink className = "Link" to = "/cart" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
-
-    { user ?  <li className = "NameLoggedUser">   <img className = "ProfilePictureUser" src = {user.pic} alt = "profile picture "/> </li>    :null}
+    { user ?  <li >   <img className = "ProfilePictureUser" src = {user.pic} onError = {{display:'none'}}/> </li>    :null}
 
 </ul>
 

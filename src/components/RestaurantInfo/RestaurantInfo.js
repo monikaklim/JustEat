@@ -7,7 +7,6 @@ const restaurantInfo = () =>(
 
 <div className = "RestaurantInfo">
 
-
 <h1>Il Panino di Zio Frank </h1>
 
 <div className = "LogoRestaurant">
