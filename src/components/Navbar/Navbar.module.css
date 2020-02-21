@@ -38,21 +38,13 @@ background-color: #14427d;
 }
 
 
-.NameLoggedUser{
-float:left;
-background-color: #266abd;
-cursor: default;
-padding:3px;
-width:10%;
-height:20px;
-}
-
 .ProfilePictureUser{
+cursor: default;
+margin: 3px 1px 2px 1px;
 width:30px;
 height:30px;
 border-radius:50%;
 vertical-align: middle;
-margin:auto;
 border: 2px solid white;
 }
 
