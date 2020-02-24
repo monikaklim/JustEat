@@ -4,14 +4,14 @@ import './index.module.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
 import reducerMenu from './store/reducers/reducerMenu';
 import thunk from 'redux-thunk';
 import reducerOrder from "./store/reducers/reducerOrder";
 import reducerAuth from "./store/reducers/reducerAuth";
 
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ;
 
 const rootReducer = combineReducers(
     {menu:reducerMenu,
