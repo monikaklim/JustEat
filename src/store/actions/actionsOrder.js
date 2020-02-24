@@ -84,6 +84,30 @@ export const sendOrderStart= () =>{
 
 
 
+export const fetchOrdersFail= (err) =>{
+    return{
+        type: actionTypes.FETCH_ORDERS_FAIL,
+        err:err
+    };
+};
+
+export const fetchOrdersSuccess= (orders) =>{
+    return{
+        orders:orders,
+        type: actionTypes.FETCH_ORDERS_FAIL
+    };
+};
+
+export const fetchOrdersStart= () =>{
+    return{
+        type: actionTypes.FETCH_ORDERS_START
+    };
+};
+
+
+
+
+
 export const sendOrder = () =>{
 let orders = [];
     return dispatch => {
@@ -97,7 +121,26 @@ let orders = [];
               
         }
         if(orders.length > 0) 
-        axios.post('api/current_order', {orders:orders, price: localStorage.getItem("price"), date: new Date().toLocaleString()});
+        axios.post('api/current_order', {orders:orders, price: localStorage.getItem("price"), date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()   }).then(
+            dispatch(sendOrderSuccess()),
+            localStorage.clear()
+        ).catch(err => sendOrderFail(err));
+        
     }
 };
   
+
+export const fetchOrders = () =>{
+
+    let orders = [];
+    return dispatch => {
+        dispatch(fetchOrdersStart());
+        axios.get('api/current_order').then( res =>        
+        dispatch(fetchOrdersSuccess(res.data), console.log(res.data))
+        ).catch(err =>  fetchOrdersFail(err))
+        
+    }
+
+
+
+}

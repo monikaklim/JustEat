@@ -7,7 +7,8 @@ export {
     addProduct,
     cancelOrder,
     removeOrder,
-    sendOrder
+    sendOrder,
+    fetchOrders
 }from './actionsOrder';
 
 export{

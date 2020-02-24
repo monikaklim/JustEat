@@ -10,7 +10,7 @@ import * as actions from '../../store/actions/index';
 const menu = (props) =>{
 
 const {user} = props;
-
+props.onFetchOrders()
 return(
 <div>     
 
@@ -81,6 +81,7 @@ const mapStateToProps = state =>{
 const mapDispatchToProps = dispatch => {
   return{
   onSendOrder: () => dispatch(actions.sendOrder()),
+  onFetchOrders: () => dispatch(actions.fetchOrders())
 
   };
 };

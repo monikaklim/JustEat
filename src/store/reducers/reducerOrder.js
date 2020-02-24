@@ -135,10 +135,7 @@ if(action.order.qnt > 1){
          totalPrice:newPrice,
          notes:''
         });
-
 }
-
-
 
 
 const sendOrderStart = ( state ) => {
@@ -153,10 +150,27 @@ const sendOrderSuccess = ( state, action ) => {
 };
 
 const sendOrderFail = ( state,action ) => {
-    console.log(action.err)
     return updateObject( state, { loading: false } );
 };
 
+
+
+const fetchOrdersStart =  ( state ) => {
+    return updateObject( state, { loading: true } );
+};
+
+
+const fetchOrdersSuccess = ( state, action ) => {
+   
+    return updateObject( state, {
+        orders:action.orders,
+        loading: false
+    } );
+};
+
+const fetchOrdersFail = ( state,action ) => {
+    return updateObject( state, { loading: false } );
+};
 
 
 
@@ -172,14 +186,12 @@ const reducerOrder = (state = initialState, action) =>{
         case actionTypes.SEND_ORDER_START: return sendOrderStart(state,action);
         case actionTypes.SEND_ORDER_SUCCESS: return sendOrderSuccess(state,action);
         case actionTypes.SEND_ORDER_FAIL: return sendOrderFail(state,action);
+        case actionTypes.FETCH_ORDERS_START: return fetchOrdersStart( state, action );
+        case actionTypes.FETCH_ORDERS_SUCCESS: return fetchOrdersSuccess( state, action );
+        case actionTypes.FETCH_ORDERS_FAIL: return fetchOrdersFail( state, action );
         default: return state;
     }
 };
-
-
-
-
-
 
 
 

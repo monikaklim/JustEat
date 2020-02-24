@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Route, BrowserRouter, Switch} from 'react-router-dom';
+import {Route, BrowserRouter, Switch,Redirect} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import asyncComponent from './hoc/asyncComponent';
 import './index.module.css';
@@ -34,7 +34,7 @@ return(
         <Route path="/info" exact  component={asyncInfo} /> 
           <Route path="/"  component={Menu} /> 
           </Switch>
-         
+          <Redirect to="/cart" />
         </div>
       </BrowserRouter>
     );
