@@ -141,34 +141,21 @@ if(action.order.qnt > 1){
 
 
 
-
-
-
 const sendOrderStart = ( state ) => {
     return updateObject( state, { loading: true } );
 };
 
-const sendOrdeSuccess = ( state, action ) => {
+const sendOrderSuccess = ( state, action ) => {
    
     return updateObject( state, {
         loading: false
     } );
 };
 
-const sendOrderFail = ( state ) => {
+const sendOrderFail = ( state,action ) => {
+    console.log(action.err)
     return updateObject( state, { loading: false } );
 };
-
-
-
-const sendOrder = (state,action) =>{
-
-   return updateObject( state,
-        {
-        
-        });
-}
-
 
 
 
@@ -182,7 +169,9 @@ const reducerOrder = (state = initialState, action) =>{
         case actionTypes.CANCEL_ORDER: return cancelOrder( state, action);
         case actionTypes.ADD_OPTION_FAIL: return addOptionFail( state);
         case actionTypes.REMOVE_ORDER: return removeOrder(state,action);
-        case actionTypes.SEND_ORDER: return sendOrder(state,action);
+        case actionTypes.SEND_ORDER_START: return sendOrderStart(state,action);
+        case actionTypes.SEND_ORDER_SUCCESS: return sendOrderSuccess(state,action);
+        case actionTypes.SEND_ORDER_FAIL: return sendOrderFail(state,action);
         default: return state;
     }
 };

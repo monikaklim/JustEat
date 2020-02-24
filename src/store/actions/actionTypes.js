@@ -9,7 +9,6 @@ export const ADD_PRODUCT = 'ADD_PRODUCT';
 
 export const CANCEL_ORDER = 'CANCEL_ORDER';
 export const REMOVE_ORDER = 'REMOVE_ORDER';
-export const SEND_ORDER = 'SEND_ORDER';
 export const SEND_ORDER_SUCCESS = 'SEND_ORDER_SUCCESS';
 export const SEND_ORDER_FAIL = 'SEND_ORDER_FAIL';
 export const SEND_ORDER_START = 'SEND_ORDER_START';

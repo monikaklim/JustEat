@@ -5,7 +5,7 @@ import './Menu.module.css';
 import Cart from '../../containers/Order/Cart/Cart'
 import {Route} from 'react-router-dom';
 import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
-
+import * as actions from '../../store/actions/index';
 
 const menu = (props) =>{
 
@@ -34,7 +34,7 @@ return(
 <div>
 
 
-{user ? <AnimatedLink  path =  "/cart"><button className = "LinkOrder">Ordina ora </button> </AnimatedLink> : 
+{user ? <AnimatedLink  path =  "/cart"><button className = "LinkOrder" onClick= {props.onSendOrder}>Ordina ora </button> </AnimatedLink> : 
 
 <a href = "/auth/google"  ><button className = "LinkOrder">  Accedi per ordinare</button> </a>
 
@@ -78,5 +78,13 @@ const mapStateToProps = state =>{
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return{
+  onSendOrder: () => dispatch(actions.sendOrder()),
 
-export default connect(mapStateToProps)(menu);
+  };
+};
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(menu);

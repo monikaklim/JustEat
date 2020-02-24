@@ -62,9 +62,10 @@ export const cancelOrder = () =>{
 }
 
 
-export const sendOrderFail= () =>{
+export const sendOrderFail= (err) =>{
     return{
-        type: actionTypes.SEND_ORDER_FAIL
+        type: actionTypes.SEND_ORDER_FAIL,
+        err:err
     };
 };
 
@@ -83,16 +84,20 @@ export const sendOrderStart= () =>{
 
 
 
-export const sendOrder = (order) =>{
+export const sendOrder = () =>{
+let orders = [];
     return dispatch => {
         dispatch(sendOrderStart());
-        axios.post('api/current_order', JSON.stringify(order)).then(response => {      
-      
-        dispatch(sendOrderSuccess());
         
-         })
-    .catch(err => dispatch(sendOrderFail(err)));    
-    
+        let keys = Object.keys(localStorage);    
+        for(let key in keys){
+        let ord = JSON.parse(localStorage.getItem(keys[key]));
+           if(keys[key] !== "price")
+            orders.push({ idOrder : ord.idOrder, name : ord.name, syn :ord.syn, options : ord.options, productPrice : ord.productPrice, notes : ord.notes, qnt : ord.qnt});
+              
+        }
+        if(orders.length > 0) 
+        axios.post('api/current_order', {orders:orders, price: localStorage.getItem("price"), date: new Date().toLocaleString()});
     }
 };
   
