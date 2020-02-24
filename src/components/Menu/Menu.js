@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import Categories from './Categories/Categories';
 import './Menu.module.css';
@@ -9,7 +9,7 @@ import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
 
 const menu = (props) =>{
 
-  const {user,loading} = props;
+  const {user} = props;
 
 
 

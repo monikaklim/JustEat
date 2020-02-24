@@ -7,12 +7,12 @@ import Spinner from '../../UI/Spinner/Spinner';
 import Option from '../Option/Option';
 
 
-const categories = (props) =>{
+const Categories = (props) =>{
 
   useEffect( () => {
       props.onFetchData();
      
-    }, []);
+    }, [props.onFetchData]);
 
 
 let categ = [];
@@ -135,4 +135,4 @@ for(let key in categories){
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(categories);
+export default connect(mapStateToProps,mapDispatchToProps)(Categories);
