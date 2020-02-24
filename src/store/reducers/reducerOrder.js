@@ -1,5 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../../utility/utility';
+import axios from 'axios';
 
 const initialState = {
     product: null,
@@ -141,6 +142,38 @@ if(action.order.qnt > 1){
 
 
 
+
+
+const sendOrderStart = ( state ) => {
+    return updateObject( state, { loading: true } );
+};
+
+const sendOrdeSuccess = ( state, action ) => {
+   
+    return updateObject( state, {
+        loading: false
+    } );
+};
+
+const sendOrderFail = ( state ) => {
+    return updateObject( state, { loading: false } );
+};
+
+
+
+const sendOrder = (state,action) =>{
+
+   return updateObject( state,
+        {
+        
+        });
+}
+
+
+
+
+
+
 const reducerOrder = (state = initialState, action) =>{
 
     switch(action.type){
@@ -149,6 +182,7 @@ const reducerOrder = (state = initialState, action) =>{
         case actionTypes.CANCEL_ORDER: return cancelOrder( state, action);
         case actionTypes.ADD_OPTION_FAIL: return addOptionFail( state);
         case actionTypes.REMOVE_ORDER: return removeOrder(state,action);
+        case actionTypes.SEND_ORDER: return sendOrder(state,action);
         default: return state;
     }
 };

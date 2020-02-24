@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-
+import axios from 'axios';
 
 
 export const addOptionSuccess = (option) =>{
@@ -40,8 +40,8 @@ export const addOption = (step,option) =>{
 export const addProduct = (product, notes) =>{
 
     return{
-     type: actionTypes.ADD_PRODUCT,
-      notes:notes,
+       type: actionTypes.ADD_PRODUCT,
+       notes:notes,
        product:product,
        price:product.Price
     };
@@ -62,4 +62,37 @@ export const cancelOrder = () =>{
 }
 
 
+export const sendOrderFail= () =>{
+    return{
+        type: actionTypes.SEND_ORDER_FAIL
+    };
+};
+
+export const sendOrderSuccess= () =>{
+    return{
+        type: actionTypes.SEND_ORDER_FAIL
+    };
+};
+
+export const sendOrderStart= () =>{
+    return{
+        type: actionTypes.SEND_ORDER_START
+    };
+};
+
+
+
+
+export const sendOrder = (order) =>{
+    return dispatch => {
+        dispatch(sendOrderStart());
+        axios.post('api/current_order', JSON.stringify(order)).then(response => {      
+      
+        dispatch(sendOrderSuccess());
+        
+         })
+    .catch(err => dispatch(sendOrderFail(err)));    
+    
+    }
+};
   
