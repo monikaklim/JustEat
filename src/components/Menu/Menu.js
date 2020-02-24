@@ -9,15 +9,12 @@ import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
 
 const menu = (props) =>{
 
-  const {user} = props;
-
-
-
+const {user} = props;
 
 return(
 <div>     
 
-<div className = "Banner">
+<div className = "Header">
 <h1 className = "Title">Il Panino di Zio Frank </h1>
 </div>
 
@@ -37,7 +34,7 @@ return(
 <div>
 
 
-{user ? <AnimatedLink  path =  "/user"><button className = "LinkOrder">Ordina ora </button> </AnimatedLink> : 
+{user ? <AnimatedLink  path =  "/cart"><button className = "LinkOrder">Ordina ora </button> </AnimatedLink> : 
 
 <a href = "/auth/google"  ><button className = "LinkOrder">  Accedi per ordinare</button> </a>
 

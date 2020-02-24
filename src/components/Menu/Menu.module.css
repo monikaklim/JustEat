@@ -63,7 +63,7 @@ display:inline-table;
         outline:none;
         }
         
-.Banner{
+.Header{
   height:25%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("./burger.jpg");
   background-repeat: no-repeat;

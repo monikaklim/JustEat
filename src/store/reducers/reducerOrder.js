@@ -8,7 +8,7 @@ const initialState = {
     price: 0,
     orders:[],
     quantity:0,
-   totalPrice:0
+   totalPrice:Number(localStorage.getItem("price"))
 }
 
 
@@ -126,8 +126,6 @@ if(action.order.qnt > 1){
     arrayOrd.splice(idOrder, 1);
 
 }
-
-
 
     return updateObject( state,
         {
