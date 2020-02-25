@@ -13,6 +13,9 @@ import * as actions from './store/actions/index';
  const asyncInfo = asyncComponent(() => {
   return import('./components/RestaurantInfo/RestaurantInfo');
 });
+const asyncOrders = asyncComponent(() => {
+  return import('./containers/Order/OrdersHistory/OrdersHistory');
+});
 
 
 
@@ -32,6 +35,7 @@ return(
        <Navbar/>
         <Switch>
         <Route path="/info" exact  component={asyncInfo} /> 
+        <Route path="/orders" exact  component={asyncOrders} /> 
           <Route path="/"  component={Menu} /> 
           </Switch>
           <Redirect to="/cart" />

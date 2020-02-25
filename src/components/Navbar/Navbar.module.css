@@ -33,13 +33,17 @@ color:white;
 background-color: #14427d; 
 }
 
+.ActiveImgLink img{
+    border: 2px solid #14427d;
+    }
+
 .Link:hover{
     background-color: #14509c;  
 }
 
 
 .ProfilePictureUser{
-cursor: default;
+cursor: pointer;
 margin: 3px 1px 2px 1px;
 width:30px;
 height:30px;
@@ -48,3 +52,7 @@ vertical-align: middle;
 border: 2px solid white;
 }
 
+.ProfilePictureUser:hover{
+    border: 3px solid #14509c;
+    margin-bottom: auto;
+    }

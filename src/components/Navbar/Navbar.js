@@ -26,9 +26,10 @@ return(
 
 
     {login}
+    
     <li>  <NavLink className = "Link" to = "/info" exact  activeClassName ="ActiveLink">Info Ristorante</NavLink></li>
     <li>  <NavLink className = "Link" to = "/cart" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
-    { user ?  <li >   <img className = "ProfilePictureUser" alt = "" src = {user.pic} style = {{display: {disp}}} onError = {() =>  disp = "none"}/> </li>    :null}
+    { user ?  <li >  <NavLink  to = "/orders" exact  activeClassName ="ActiveImgLink"> <img className = "ProfilePictureUser" alt = "" src = {user.pic} style = {{display: {disp}}} onError = {() =>  disp = "none"}/> </NavLink> </li>    :null}
 
 </ul>
 

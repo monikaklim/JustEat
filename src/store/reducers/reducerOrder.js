@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../../utility/utility';
-import axios from 'axios';
+
 
 const initialState = {
     product: null,
@@ -9,6 +9,7 @@ const initialState = {
     price: 0,
     orders:[],
     quantity:0,
+    orderHistory:[],
    totalPrice:Number(localStorage.getItem("price"))
 }
 
@@ -149,7 +150,7 @@ const sendOrderSuccess = ( state, action ) => {
     } );
 };
 
-const sendOrderFail = ( state,action ) => {
+const sendOrderFail = ( state ) => {
     return updateObject( state, { loading: false } );
 };
 
@@ -162,13 +163,17 @@ const fetchOrdersStart =  ( state ) => {
 
 const fetchOrdersSuccess = ( state, action ) => {
    
+console.log(action.orders.map(o=> o.order.map(or => or.name)));
+
+
+
     return updateObject( state, {
-        orders:action.orders,
+        orderHistory:action.orders,
         loading: false
     } );
 };
 
-const fetchOrdersFail = ( state,action ) => {
+const fetchOrdersFail = ( state ) => {
     return updateObject( state, { loading: false } );
 };
 
