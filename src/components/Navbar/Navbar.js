@@ -16,11 +16,11 @@ login = <li><a href = "/auth/google" className = "Link" >  Accedi con Google </a
 }
 
 if(!loading && user){
-    login = <li><a href = "/api/logout" className = "Link" onClick = {()=> localStorage.clear()  } >  Logout </a> </li>;
+    login = <li><a href = "/api/logout" className = "Link" onClick = {()=> localStorage.clear()  } >  Esci </a> </li>;
     }
     
 
-    let disp = 'block';
+let disp = 'block';
 return(
 <ul className = "Navbar">
 
@@ -29,7 +29,7 @@ return(
     
     <li>  <NavLink className = "Link" to = "/info" exact  activeClassName ="ActiveLink">Info Ristorante</NavLink></li>
     <li>  <NavLink className = "Link" to = "/cart" exact  activeClassName ="ActiveLink">Menù</NavLink></li>
-    { user ?  <li >  <NavLink  to = "/orders" exact  activeClassName ="ActiveImgLink"> <img className = "ProfilePictureUser" alt = "" src = {user.pic} style = {{display: {disp}}} onError = {() =>  disp = "none"}/> </NavLink> </li>    :null}
+    { user ?  <li title = {user.name}>  <NavLink  to = "/orders" exact  activeClassName ="ActiveImgLink"> <img className = "ProfilePictureUser" alt = "" src = {user.pic} style = {{display: {disp}}} onError = {() =>  disp = "none"}/> </NavLink> </li>    :null}
 
 </ul>
 

@@ -4,6 +4,7 @@ import * as actions from '../../../store/actions/index';
 import {connect} from 'react-redux';
 import Order from '../../../components/UI/Item/Item';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import AnimatedLink from '../../../components/UI/AnimatedLink/AnimatedLink';
 
 const order = (props) => {
 
@@ -14,7 +15,7 @@ const order = (props) => {
       let orders = <Spinner/>;
 
 
-      if(!props.loading){
+      if(!props.loading && props.orders !== []){
         orders = props.orders.map(o =>  
                 <div>  
         
@@ -32,9 +33,12 @@ const order = (props) => {
                 <br/>
             </div>
             ) ;
-
         }
-
+            
+        
+       
+        
+console.log(orders !== [])
 
 
     return(
@@ -47,8 +51,13 @@ const order = (props) => {
 
     <h2>Ordini </h2>
 
-    {orders}
-
+    {orders !== [] ? 
+    <div>
+    <p>La cronologia degli ordini è vuota.</p>  
+    <AnimatedLink  path =  "/cart"><button className = "LinkOrder" >Ordina ora! </button> </AnimatedLink>
+    </div>
+    
+    :orders}
 
     </div>
 
