@@ -162,11 +162,6 @@ const fetchOrdersStart =  ( state ) => {
 
 
 const fetchOrdersSuccess = ( state, action ) => {
-   
-console.log(action.orders.map(o=> o.order.map(or => or.name)));
-
-
-
     return updateObject( state, {
         orderHistory:action.orders,
         loading: false

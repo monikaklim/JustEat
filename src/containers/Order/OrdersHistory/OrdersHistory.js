@@ -15,7 +15,7 @@ const order = (props) => {
       let orders = <Spinner/>;
 
 
-      if(!props.loading && props.orders !== []){
+      if(!props.loading && props.orders.length > 0){
         orders = props.orders.map(o =>  
                 <div>  
         
@@ -35,11 +35,6 @@ const order = (props) => {
             ) ;
         }
             
-        
-       
-        
-console.log(orders !== [])
-
 
     return(
  <div className = "OrderHistory">
@@ -51,7 +46,7 @@ console.log(orders !== [])
 
     <h2>Ordini </h2>
 
-    {orders !== [] ? 
+    {orders.length === 0 ? 
     <div>
     <p>La cronologia degli ordini è vuota.</p>  
     <AnimatedLink  path =  "/cart"><button className = "LinkOrder" >Ordina ora! </button> </AnimatedLink>
