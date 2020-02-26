@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-
+import axios from 'axios';
 
 
 export const addOptionSuccess = (option) =>{
@@ -40,8 +40,8 @@ export const addOption = (step,option) =>{
 export const addProduct = (product, notes) =>{
 
     return{
-     type: actionTypes.ADD_PRODUCT,
-      notes:notes,
+       type: actionTypes.ADD_PRODUCT,
+       notes:notes,
        product:product,
        price:product.Price
     };
@@ -62,4 +62,81 @@ export const cancelOrder = () =>{
 }
 
 
+export const sendOrderFail= (err) =>{
+    return{
+        type: actionTypes.SEND_ORDER_FAIL,
+        err:err
+    };
+};
+
+export const sendOrderSuccess= () =>{
+    return{
+        type: actionTypes.SEND_ORDER_SUCCESS
+    };
+};
+
+export const sendOrderStart= () =>{
+    return{
+        type: actionTypes.SEND_ORDER_START
+    };
+};
+
+
+
+
+export const fetchOrdersFail= (err) =>{
+    return{
+        type: actionTypes.FETCH_ORDERS_FAIL,
+        err:err
+    };
+};
+
+export const fetchOrdersSuccess= (orders) =>{
+    return{
+        orders:orders,
+        type: actionTypes.FETCH_ORDERS_SUCCESS
+    };
+};
+
+export const fetchOrdersStart= () =>{
+    return{
+        type: actionTypes.FETCH_ORDERS_START
+    };
+};
+
+
+
+
+
+export const sendOrder = () =>{
+let orders = [];
+    return dispatch => {
+        dispatch(sendOrderStart());
+        
+        let keys = Object.keys(localStorage);    
+        for(let key in keys){
+        let ord = JSON.parse(localStorage.getItem(keys[key]));
+           if(keys[key] !== "price")
+            orders.push({ idOrder : ord.idOrder, name : ord.name, syn :ord.syn, options : ord.options, productPrice : ord.productPrice, notes : ord.notes, qnt : ord.qnt});
+              
+        }
+        if(orders.length > 0) 
+        axios.post('api/user_orders', {orders:orders, price: localStorage.getItem("price"), date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString() }).then(
+            dispatch(sendOrderSuccess()),
+            localStorage.clear()
+        ).catch(err => sendOrderFail(err));
+        
+    }
+};
   
+
+export const fetchOrders = () =>{
+
+    return dispatch => {
+        dispatch(fetchOrdersStart());
+        axios.get('api/user_orders').then( res =>        
+        dispatch(fetchOrdersSuccess(res.data))
+        ).catch(err =>  fetchOrdersFail(err))
+    }
+
+}

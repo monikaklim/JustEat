@@ -36,8 +36,6 @@ class Product extends Component{
     
 render(){
 
- 
-
     let str = '';
     if(this.props.desc){
     str = this.props.desc.replace("<br />", "");
@@ -80,7 +78,7 @@ render(){
 
 
 
-<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = { this.addedToCart } disabled = { (stepMax  === this.props.options.length)? false : true }> 
+<Modal show = {  this.state.show}  modalClosed = {this.hideModal} clicked = { this.addedToCart } buttonText = {<i className="material-icons">add_shopping_cart</i>}  disabled = { (stepMax  === this.props.options.length)? false : true }> 
 <div>
 <h2>Opzioni</h2>
 {op2.length > 0 ? 

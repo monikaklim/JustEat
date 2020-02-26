@@ -6,7 +6,9 @@ export {
     addOption,
     addProduct,
     cancelOrder,
-    removeOrder
+    removeOrder,
+    sendOrder,
+    fetchOrders
 }from './actionsOrder';
 
 export{

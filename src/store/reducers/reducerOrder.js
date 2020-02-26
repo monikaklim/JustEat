@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../../utility/utility';
 
+
 const initialState = {
     product: null,
     options: [],
@@ -8,7 +9,8 @@ const initialState = {
     price: 0,
     orders:[],
     quantity:0,
-   totalPrice:0
+    orderHistory:[],
+   totalPrice:Number(localStorage.getItem("price"))
 }
 
 
@@ -127,8 +129,6 @@ if(action.order.qnt > 1){
 
 }
 
-
-
     return updateObject( state,
         {
          quantity:quantity,
@@ -136,9 +136,41 @@ if(action.order.qnt > 1){
          totalPrice:newPrice,
          notes:''
         });
-
 }
 
+
+const sendOrderStart = ( state ) => {
+    return updateObject( state, { loading: true } );
+};
+
+const sendOrderSuccess = ( state, action ) => {
+   
+    return updateObject( state, {
+        loading: false
+    } );
+};
+
+const sendOrderFail = ( state ) => {
+    return updateObject( state, { loading: false } );
+};
+
+
+
+const fetchOrdersStart =  ( state ) => {
+    return updateObject( state, { loading: true } );
+};
+
+
+const fetchOrdersSuccess = ( state, action ) => {
+    return updateObject( state, {
+        orderHistory:action.orders,
+        loading: false
+    } );
+};
+
+const fetchOrdersFail = ( state ) => {
+    return updateObject( state, { loading: false } );
+};
 
 
 
@@ -151,14 +183,15 @@ const reducerOrder = (state = initialState, action) =>{
         case actionTypes.CANCEL_ORDER: return cancelOrder( state, action);
         case actionTypes.ADD_OPTION_FAIL: return addOptionFail( state);
         case actionTypes.REMOVE_ORDER: return removeOrder(state,action);
+        case actionTypes.SEND_ORDER_START: return sendOrderStart(state,action);
+        case actionTypes.SEND_ORDER_SUCCESS: return sendOrderSuccess(state,action);
+        case actionTypes.SEND_ORDER_FAIL: return sendOrderFail(state,action);
+        case actionTypes.FETCH_ORDERS_START: return fetchOrdersStart( state, action );
+        case actionTypes.FETCH_ORDERS_SUCCESS: return fetchOrdersSuccess( state, action );
+        case actionTypes.FETCH_ORDERS_FAIL: return fetchOrdersFail( state, action );
         default: return state;
     }
 };
-
-
-
-
-
 
 
 

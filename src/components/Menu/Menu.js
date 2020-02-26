@@ -1,25 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import Categories from './Categories/Categories';
 import './Menu.module.css';
 import Cart from '../../containers/Order/Cart/Cart'
 import {Route} from 'react-router-dom';
 import AnimatedLink from '../UI/AnimatedLink/AnimatedLink';
-
+import * as actions from '../../store/actions/index';
+import Modal from '../UI/Modal/Modal';
 
 const menu = (props) =>{
 
-  const {user} = props;
+  const [show, setShow] = useState(false);
+
+const sendOrderHandler = () =>{
+  props.onSendOrder();
+   setShow(true);
+}
+
+const closeModalHandler = () =>{
+  setShow(false);
+}
 
 
-
+const {user} = props;
 
 return(
 <div>     
 
-<div className = "Banner">
-<h1 className = "Title">Il Panino di Zio Frank </h1>
+<div className = "Header">
+<h1 className = "Title">IL PANINO DI ZIO FRANK</h1>
 </div>
+
+
+<Modal show = {show} modalClosed = {closeModalHandler} buttonText = "Chiudi" clicked = {closeModalHandler}>
+  <p>L'ordine è stato inviato con successo.</p>
+</Modal>
+
 
 <br/>
 <div className="CategoriesContainer">
@@ -37,7 +53,7 @@ return(
 <div>
 
 
-{user ? <AnimatedLink  path =  "/user"><button className = "LinkOrder">Ordina ora </button> </AnimatedLink> : 
+{user ? <AnimatedLink  path =  "/cart"><button className = "LinkOrder" onClick= {sendOrderHandler}>Invia ordine </button> </AnimatedLink> : 
 
 <a href = "/auth/google"  ><button className = "LinkOrder">  Accedi per ordinare</button> </a>
 
@@ -48,7 +64,7 @@ return(
 <div>
 
 
- {user ?  <button className = "LinkEmptyCart" disabled> Ordina ora </button>  : 
+ {user ?  <button className = "LinkEmptyCart" disabled> Invia ordine </button>  : 
 
 <button className = "LinkEmptyCart" disabled> Accedi per ordinare </button> 
 
@@ -81,5 +97,12 @@ const mapStateToProps = state =>{
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return{
+  onSendOrder: () => dispatch(actions.sendOrder())
+  };
+};
 
-export default connect(mapStateToProps)(menu);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(menu);
